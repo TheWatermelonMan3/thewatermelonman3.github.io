@@ -6,7 +6,7 @@ html, body {
   background: black;
   height: 90vh;
   width: 90vw;
-  font-family: "Source Code Pro", "Quicksand", "Helvetica", sans-serif;
+  font-family: "Source Code Pro", "Helvetica", sans-serif;
   color: white;
 }
 
@@ -15,10 +15,10 @@ h1 {
 }
 
 button{
-  background-color: #f57002;
+  background-color: #00bbff;
   border-radius:10px;
   color: black;
-  font-family: "Quicksand", "Helvetica", sans-serif;
+  font-family: "Source Code Pro", "Helvetica", sans-serif;
   padding: 6px 6px;
   border: 2px solid black;
   cursor: pointer;
@@ -26,10 +26,10 @@ button{
   transition: 0.25s;
 }
 .specialbutton{
-  background-color: #9898d6;
+  background-color: #dd00ff;
   border-radius:10px;
   color: black;
-  font-family: "Quicksand", "Helvetica", sans-serif;
+  font-family: "Source Code Pro", "Helvetica", sans-serif;
   padding: 6px 6px;
   border: 2px solid black;
   cursor: pointer;
@@ -40,7 +40,7 @@ button{
   background-color: transparent;
   border-radius: 0px;
   color: black;
-  font-family: "Quicksand", "Helvetica", sans-serif;
+  font-family: "Source Code Pro", "Helvetica", sans-serif;
   padding: 0px 0px;
   border: none;
   cursor: pointer;
@@ -48,19 +48,19 @@ button{
 }
 
 input{
-  background-color: #f2b079;
+  background-color: #80e1ff;
   border-radius:10px;
   color: black;
-  font-family: "Quicksand", "Helvetica", sans-serif;
+  font-family: "Source Code Pro", "Helvetica", sans-serif;
   padding: 6px 6px;
   border: 2px solid black;
   font-weight: bolder;
 }
 .specialinput{
-  background-color: #bfbfd9;
+  background-color: #ee82ff;
   border-radius:10px;
   color: black;
-  font-family: "Quicksand", "Helvetica", sans-serif;
+  font-family: "Source Code Pro", "Helvetica", sans-serif;
   padding: 6px 6px;
   border: 2px solid black;
   font-weight: bolder;
@@ -72,10 +72,10 @@ a{
 }
 
 textarea{
-  background-color: #f2b079;
+  background-color: #80e1ff;
   border-radius:10px;
   color: black;
-  font-family: "Quicksand", "Helvetica", sans-serif;
+  font-family: "Source Code Pro", "Helvetica", sans-serif;
   padding: 6px 6px;
   border: 2px solid black;
   font-weight: bolder;
