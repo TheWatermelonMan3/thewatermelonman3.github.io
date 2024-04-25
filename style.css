@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 
 html, body {
-  background: #000152;
+  background: black;
   height: 90vh;
   width: 90vw;
-  font-family: "Quicksand", "Helvetica", sans-serif;
+  font-family: "Source Code Pro", "Quicksand", "Helvetica", sans-serif;
   color: white;
+}
+
+h1 {
+  font-family: "Jersey 10";
 }
 
 button{
