@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+html, body {
+  background: #000152;
+  height: 100%;
+  width: 100%;
+  font-family: "Quicksand", "Helvetica", sans-serif;
+}
+
+button{
+  background-color: #f57002;
+  border-radius:10px;
+  color: black;
+  font-family: "Quicksand", "Helvetica", sans-serif;
+  padding: 6px 6px;
+  border: 2px solid black;
+  cursor: pointer;
+  font-weight: bolder;
+  transition: 0.25s;
+}
+.specialbutton{
+  background-color: #9898d6;
+  border-radius:10px;
+  color: black;
+  font-family: "Quicksand", "Helvetica", sans-serif;
+  padding: 6px 6px;
+  border: 2px solid black;
+  cursor: pointer;
+  font-weight: bolder;
+  transition: 0.25s;
+}
+.borderlessbutton{
+  background-color: transparent;
+  border-radius: 0px;
+  color: black;
+  font-family: "Quicksand", "Helvetica", sans-serif;
+  padding: 0px 0px;
+  border: none;
+  cursor: pointer;
+  font-size: 15pt;
+}
+
+input{
+  background-color: #f2b079;
+  border-radius:10px;
+  color: black;
+  font-family: "Quicksand", "Helvetica", sans-serif;
+  padding: 6px 6px;
+  border: 2px solid black;
+  font-weight: bolder;
+}
+.specialinput{
+  background-color: #bfbfd9;
+  border-radius:10px;
+  color: black;
+  font-family: "Quicksand", "Helvetica", sans-serif;
+  padding: 6px 6px;
+  border: 2px solid black;
+  font-weight: bolder;
+}
+
+a{
+  font-weight: bold;
+  color: #9898d6;
+}
+
+textarea{
+  background-color: #f2b079;
+  border-radius:10px;
+  color: black;
+  font-family: "Quicksand", "Helvetica", sans-serif;
+  padding: 6px 6px;
+  border: 2px solid black;
+  font-weight: bolder;
+}
