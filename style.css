@@ -25,6 +25,13 @@ button{
   font-weight: bolder;
   transition: 0.25s;
 }
+
+.button:hover{
+  background-color: #1cfc03;
+  transform: translateY(-5px);
+  transition: 0.5s;
+}
+
 .specialbutton{
   background-color: #dd00ff;
   border-radius:10px;
@@ -36,6 +43,13 @@ button{
   font-weight: bolder;
   transition: 0.25s;
 }
+
+.specialbutton:hover{
+  background-color: #ffc800;
+  transform: translateY(-5px);
+  transition: 0.5s;
+}
+
 .borderlessbutton{
   background-color: transparent;
   border-radius: 0px;
@@ -68,7 +82,14 @@ input{
 
 a{
   font-weight: bold;
-  color: #9898d6;
+  color: #00bbff;
+  transform:translateY(0px);
+}
+
+.a:hover{
+  color: #1cfc03;
+  transition: 0.5s;
+  transform:translateY(5px);
 }
 
 textarea{
