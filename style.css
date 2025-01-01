@@ -92,6 +92,12 @@ a{
   transform:translateY(5px);
 }
 
+a2{
+  font-weight: bold;
+  color: #00bbff;
+  transform:translateY(0px);
+}
+
 .a2:hover{
   color: #e32802;
   transition: 0.5s;
