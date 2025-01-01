@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+html, body {
+  background: #dbffdb;
+  height: 100%;
+  width: 100%;
+  font-family: "Quicksand", "Helvetica", sans-serif;
+}
+
+button{
+  background-color: #d68b00;
+  border-radius:10px;
+  color: black;
+  font-family: "Quicksand", "Helvetica", sans-serif;
+  padding: 6px 6px;
+  border: 2px solid black;
+  cursor: pointer;
+  font-weight: bolder;
+  transition: 0.25s;
+}
+.specialbutton{
+  background-color: limegreen;
+  border-radius:10px;
+  color: black;
+  font-family: "Quicksand", "Helvetica", sans-serif;
+  padding: 6px 6px;
+  border: 2px solid black;
+  cursor: pointer;
+  font-weight: bolder;
+  transition: 0.25s;
+}
+.borderlessbutton{
+  background-color: transparent;
+  border-radius: 0px;
+  color: black;
+  font-family: "Quicksand", "Helvetica", sans-serif;
+  padding: 0px 0px;
+  border: none;
+  cursor: pointer;
+  font-size: 15pt;
+}
+
+input{
+  background-color: #ffbb3d;
+  border-radius:10px;
+  color: black;
+  font-family: "Quicksand", "Helvetica", sans-serif;
+  padding: 6px 6px;
+  border: 2px solid black;
+  font-weight: bolder;
+}
+.specialinput{
+  background-color: #85e585;
+  border-radius:10px;
+  color: black;
+  font-family: "Quicksand", "Helvetica", sans-serif;
+  padding: 6px 6px;
+  border: 2px solid black;
+  font-weight: bolder;
+}
+
+a{
+  font-weight: bold;
+  color: limegreen;
+}
+
+textarea{
+  background-color: #ffbb3d;
+  border-radius:10px;
+  color: black;
+  font-family: "Quicksand", "Helvetica", sans-serif;
+  padding: 6px 6px;
+  border: 2px solid black;
+  font-weight: bolder;
+}
