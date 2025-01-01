@@ -83,25 +83,14 @@ input{
 a{
   font-weight: bold;
   color: #00bbff;
-  transform: none;
 }
 
 .a:hover{
   color: #1cfc03;
-  transform: none;
-  transition: 0.5s;
-}
-
-.a3{
-  transform: none;
-  font-weight: bold;
-  color: #00bbff; 
 }
 
 .a3:hover{
-  transform: none;
   color: #e32802;
-  transition: color 0.5s;
 }
 
 textarea{
