@@ -28,7 +28,6 @@ button{
 
 .button:hover{
   background-color: #1cfc03;
-  transform: translateY(-5px);
   transition: 0.5s;
 }
 
@@ -46,7 +45,6 @@ button{
 
 .specialbutton:hover{
   background-color: #ffc800;
-  transform: translateY(-5px);
   transition: 0.5s;
 }
 
