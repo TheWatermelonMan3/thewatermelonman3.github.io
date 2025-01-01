@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  
+  <!--  this is a comment <meta name="viewport" content="width=device-width"> -->
+  
+  <title>Neural Network Playground</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <h1>Neural Network Playground</h1>
+  I created this webpage in 11th grade in order to help visualize how neural networks function.
+
+  <p></p>
+
+  <hr>
+
+  <button id = "importButton" onclick = "processImport()" class = "specialbutton">Import Weights and Biases by Text</button>
+  <input id = "importText" placeholder = "text file here" class = "specialinput">
+  <button id = "saveButton" onclick = "printFile()" class = "specialbutton">Print Weights and Biases in Text</button>
+  <button id = "resetNetwork" onclick = "progressUI(1)">Reset Playground</button>
+
+  <hr>
+
+  <p></p>
+  <input id = "layersNumber" placeholder = "# of LAYERS">
+  <input id = "inputsNumber" placeholder = "# of INPUTS">
+  <input id = "outputsNumber" placeholder = "# of OUTPUTS">
+  <input id = "layerSizeNumber" placeholder = "# of NEURONS IN HIDDEN LAYER">
+  <p></p>
+  <button id = "createNetwork" onclick = "I_am_ready(1)">Ready to Create Network</button>
+
+  <p></p>
+  
+  <p id = "explaintraining">We are now going to train the network by Backpropagation and Gradient Descent. <br>
+This process works by starting with a set of practice problems with a correct answer. <br>
+Throughout Gradient Descent, the neural network will have a Cost function that estimates how badly it messes up on those practice problems. <br>
+It then changes the parameters of the network to make the Cost function go down as much as possible.</p>
+
+  <button id = "UserHasChosenNumberInput" onclick = "User_chose_backprop()">Make practice problems by numerical input</button>
+  <p>
+  <button id = "UserHasChosenPixelInput" onclick = "User_chose_pixelImage()">Make practice problems by a pixel image</button>
+  <input id = "PixelRowSize" placeholder = "How many pixels per row?">
+  </p>
+
+  <p id = "backprop_training_inputs_appear"> PlaceholderText. <br>
+    <!--Auto generated inputs appear here.-->
+  </p>
+
+  <button id = "addExerciseButton" onclick = "Backprop_exercise_add()">Add This Exercise to Training Set</button>
+  <button id = "undoExercise" onclick = "Undo_backprop_exercise()">Undo last exercise</button>
+  <button id = "finishExercises" onclick = "Backprop_exercise_done()">All Training Set Data is Finished Now</button>
+
+  <strong><p id = "ShowError">Error: UNKNOWN</p></strong>
+
+  <button id = "backprop1" onclick = "backprop1()">Backpropagate 1 time</button>
+  <button id = "backprop10" onclick = "backprop10()">Backpropagate 10 times</button>
+  <button id = "backprop100" onclick = "backprop100()">Backpropagate 100 times</button>
+  <p></p>
+  <button id = "backpropAllDone" onclick = "backpropAllDone()" class = "specialbutton">I am happy with the training of the network</button>
+
+  <p id = "final_try_inputs_appear"> PlaceholderText. <br>
+    <!--Auto generated inputs appear here.-->
+  </p>
+
+  <button id = "tryIn" onclick = "tryInput()">Go</button>
+
+  <p id = "tryOut">Output: </p>
+  
+  <hr>
+  
+  <textarea id = "print" cols = 50 rows = 8>Text Output goes here</textarea>
+
+  <p>See the visual representation of the network below.</p>
+  
+  <canvas id="canvas" width="1000" height="300" style="border:1px solid #000000;">
+    Your browser does not support the HTML5 canvas tag.
+  </canvas>
+
+  <p><br><br><strong>Website made by JosiahCode 2023</strong><br><br></p>
+
+<script>
+
+var pixel = false;
+var pixelRowSize = 0;
+  
+function print(text){
+  document.getElementById("print").innerHTML = document.getElementById("print").innerHTML + "\n" + text;
+}
+function clearprinting(){
+  document.getElementById("print").innerHTML = "Text Output goes here";
+}
+
+function progressUI(stageNumber){
+  if(stageNumber === 1){
+    //localvarContext = document.getElementById('canvas').getContext('2d');
+    document.getElementById("layersNumber").hidden = false;
+    document.getElementById("inputsNumber").hidden = false;
+    document.getElementById("outputsNumber").hidden = false;
+    document.getElementById("layerSizeNumber").hidden = false;
+    document.getElementById("createNetwork").hidden = false;
+    document.getElementById("resetNetwork").hidden = true;
+    document.getElementById("saveButton").hidden = true;
+    //localvarContext.clearRect(0, 0, canvas.width, canvas.height);
+  } else{
+    document.getElementById("layersNumber").hidden = true;
+    document.getElementById("inputsNumber").hidden = true;
+    document.getElementById("outputsNumber").hidden = true;
+    document.getElementById("layerSizeNumber").hidden = true;
+    document.getElementById("createNetwork").hidden = true;
+    document.getElementById("resetNetwork").hidden = false;
+    document.getElementById("saveButton").hidden = false;
+  }
+
+  if(stageNumber === 2){
+    document.getElementById("UserHasChosenPixelInput").hidden = false;
+    document.getElementById("UserHasChosenNumberInput").hidden = false;
+    document.getElementById("explaintraining").hidden = false;
+    document.getElementById("PixelRowSize").hidden = false;
+  } else {
+    document.getElementById("UserHasChosenPixelInput").hidden = true;
+    document.getElementById("UserHasChosenNumberInput").hidden = true;
+    document.getElementById("explaintraining").hidden = true;
+    document.getElementById("PixelRowSize").hidden = true;
+  }
+
+  if(stageNumber === 3.1){
+    document.getElementById("backprop_training_inputs_appear").hidden = false;
+    document.getElementById("addExerciseButton").hidden = false;
+    document.getElementById("undoExercise").hidden = false;
+    document.getElementById("finishExercises").hidden = false;
+  } else {
+    document.getElementById("backprop_training_inputs_appear").hidden = true;
+    document.getElementById("addExerciseButton").hidden = true;
+    document.getElementById("undoExercise").hidden = true;
+    document.getElementById("finishExercises").hidden = true;
+  }
+
+  if(stageNumber === 4.1){
+    document.getElementById("ShowError").hidden = false;
+    document.getElementById("backprop1").hidden = false;
+    document.getElementById("backprop10").hidden = false;
+    document.getElementById("backprop100").hidden = false;
+    document.getElementById("backpropAllDone").hidden = false;
+  } else {
+    document.getElementById("ShowError").hidden = true;
+    document.getElementById("backprop1").hidden = true;
+    document.getElementById("backprop10").hidden = true;
+    document.getElementById("backprop100").hidden = true;
+    document.getElementById("backpropAllDone").hidden = true;
+  }
+
+  if(stageNumber === 5.1){
+    document.getElementById("tryIn").hidden = false;
+    document.getElementById("tryOut").hidden = false;
+    document.getElementById("final_try_inputs_appear").hidden = false;
+  } else {
+    document.getElementById("tryIn").hidden = true;
+    document.getElementById("tryOut").hidden = true;
+    document.getElementById("final_try_inputs_appear").hidden = true;
+  }
+
+  //add genetic here
+}
+
+progressUI(1);
+
+var layersNumber;
+var inputsNumber;
+var outputsNumber;
+var hiddenNumber;
+var inputs;
+var outputs;
+var hiddenlayermatrix;
+let idx;
+let val;
+
+function propagateEntireMatrix(){
+  if (hiddenlayermatrix !== null){
+    for(let m=0; m<hiddenlayermatrix.length; m++){
+      for(let n=0; n<hiddenlayermatrix[0].length; n++){
+        hiddenlayermatrix[m][n].propagate();
+      }
+    }
+  }
+  for(let m=0; m<outputs.length; m++){
+    outputs[m].propagate();
+  }
+}
+
+function returnOutputAsArray(){
+  myArray = new Array(outputsNumber);
+  for(let i = 0; i<outputsNumber; i++){
+    myArray[i] = outputs[i].innerValue;
+  }
+  return myArray;
+}
+
+function calculate1cost(outputAsArray, trueAnswers){
+  let sum = 0;
+  if (outputAsArray.length === trueAnswers.length){
+    for(let x = 0; x<outputAsArray.length; x++){
+      sum += Math.pow((outputAsArray[x] - trueAnswers[x]),2);
+    }
+  } else {
+    return 0;
+  }
+  let avg = sum / outputAsArray.length;
+  return avg;
+}
+  
+
+canvas = document.getElementById('canvas');
+context = canvas.getContext('2d');
+
+function rgb(red, green, blue){
+  red = Math.round(red);
+  green = Math.round(green);
+  blue = Math.round(blue);
+  let numerals = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
+  return ( "#" + numerals[Math.floor(red/16)] + numerals[red%16] + numerals[Math.floor(green/16)] + numerals[green%16] + numerals[Math.floor(blue/16)] + numerals[blue%16] );
+}
+
+function circle(x,y,r, brightness){
+  context.strokeStyle = '#000000';
+  context.fillStyle = rgb(255*brightness, 255*brightness, 255* brightness);
+  context.lineWidth = 5;
+  context.beginPath();
+  context.arc(x, y, r, 0, 2 * Math.PI);
+  context.fill();
+  context.stroke();
+}
+  
+function getHeight(node, outOf){
+  return (canvas.height / 2.0) + (60*(node - ((outOf*0.5) + 0.5)));
+}
+
+function drawTheEntireNetwork(){
+context.clearRect(0, 0, canvas.width, canvas.height);
+for(let g = 0; g<inputsNumber; g++){
+  circle(100,getHeight(g+1,inputsNumber),20, inputs[g].innerValue);
+}
+
+let height;
+let x;
+let drawBiases;
+
+for(let loop1 = 0; loop1 < layersNumber -2; loop1++){
+  x = (200 + 100*loop1);
+  for(let loop2 = 0; loop2 < hiddenNumber; loop2++){
+    height = getHeight(loop2+1,hiddenNumber);
+    drawBiases = hiddenlayermatrix[loop1][loop2].bias * 5;
+    if(drawBiases >0){
+      context.fillStyle = "#00aa00";
+      context.fillRect(x-25, height-drawBiases, 10, Math.abs(drawBiases));
+    } else if (drawBiases <0){
+      context.fillStyle = "#aa0000";
+      context.fillRect(x-25, height, 10, Math.abs(drawBiases));
+    }
+    circle(x, height, 20, hiddenlayermatrix[loop1][loop2].innerValue);
+
+    for(let h = 0; h<hiddenlayermatrix[loop1][loop2].weights.length; h++){
+    if(hiddenlayermatrix[loop1][loop2].weights[h] >0){
+      context.strokeStyle = "#00aa00";
+    } else if (hiddenlayermatrix[loop1][loop2].weights[h] <0){
+      context.strokeStyle = "#aa0000";
+    } else {
+      context.strokeStyle = "#888800";
+    }
+    context.lineWidth = Math.abs(hiddenlayermatrix[loop1][loop2].weights[h]) + 1;
+    context.beginPath();
+    context.moveTo(x-20, height);
+    context.lineTo(x-80, getHeight(h+1, hiddenlayermatrix[loop1][loop2].weights.length));
+    context.stroke();
+  }
+  }
+}
+
+x = (100 * layersNumber);
+for(let g = 0; g<outputsNumber; g++){
+  height = getHeight(g+1,outputsNumber);
+  drawBiases = outputs[g].bias * 5;
+  if(drawBiases >0){
+      context.fillStyle = "#00aa00";
+      context.fillRect(x-25, height-drawBiases, 10, Math.abs(drawBiases));
+    } else if (drawBiases <0){
+      context.fillStyle = "#aa0000";
+      context.fillRect(x-25, height, 10, Math.abs(drawBiases));
+    }
+  
+  circle(x, height, 20, outputs[g].innerValue);
+  for(let h = 0; h<outputs[g].weights.length; h++){
+    if(outputs[g].weights[h] >0){
+      context.strokeStyle = "#00aa00";
+    } else if (outputs[g].weights[h] <0){
+      context.strokeStyle = "#aa0000";
+    } else {
+      context.strokeStyle = "#888800";
+    }
+    context.lineWidth = Math.abs(outputs[g].weights[h]) + 1;
+    context.beginPath();
+    context.moveTo(x-20, height);
+    context.lineTo(x-80, getHeight(h+1, outputs[g].weights.length));
+    context.stroke();
+  }
+}
+}
+  
+function I_am_ready(getInput){
+
+  if(getInput === 1){
+  if(isNaN( parseInt(document.getElementById("layersNumber").value)) || isNaN(parseInt(document.getElementById("inputsNumber").value)) || isNaN(parseInt(document.getElementById("outputsNumber").value)) || isNaN(parseInt(document.getElementById("layerSizeNumber").value))){
+    print("⚠️ERROR: enter all the inputs as numbers first...");
+    return;
+  } else if ((parseFloat(document.getElementById("layersNumber").value) % 1 != 0) || (parseFloat(document.getElementById("inputsNumber").value) % 1 != 0) || (parseFloat(document.getElementById("outputsNumber").value) % 1 != 0) || (parseFloat(document.getElementById("layerSizeNumber").value) % 1 != 0)){
+    print("⚠️ERROR: only integers you silly head");
+    return;
+  } else if(parseInt(document.getElementById("layersNumber").value) < 2){
+    print("⚠️ERROR: 1 layer is not a network");
+    return;
+  }
+
+
+  clearprinting();
+  
+  print("ready!");
+
+print("retrieving data from the input boxes");
+layersNumber = parseInt( document.getElementById("layersNumber").value );
+print("input 1 done: " + layersNumber);
+inputsNumber = parseInt( document.getElementById("inputsNumber").value );
+print("input 2 done: " + inputsNumber);
+outputsNumber = parseInt( document.getElementById("outputsNumber").value );
+print("input 3 done: " + outputsNumber);
+hiddenNumber = parseInt( document.getElementById("layerSizeNumber").value );
+print("input 4 done: " + hiddenNumber);
+
+  }
+
+  let bigNumber;
+  if(inputsNumber > 5 || hiddenNumber > 5 || outputsNumber > 5){
+    print("Expanding Canvas to bigger");
+    bigNumber = inputsNumber;
+    if(hiddenNumber > bigNumber){
+      bigNumber = hiddenNumber;
+    }
+    if(outputsNumber > bigNumber){
+      bigNumber = outputsNumber;
+    }
+    canvas.height = (bigNumber - 5) * 30 + 300;
+  }
+  context.clearRect(0, 0, canvas.width, canvas.height);
+
+inputs = new Array(inputsNumber);
+outputs = new Array(outputsNumber);
+if(layersNumber > 2){
+  hiddenlayermatrix = new Array(layersNumber-2);
+  for(let y = 0; y<layersNumber - 2; y++){
+    hiddenlayermatrix[y] = new Array(hiddenNumber);
+  }
+  
+} else{
+  hiddenlayermatrix = null;
+}
+
+print("setup input layer (layer 0)");
+for(let i = 0; i<inputsNumber; i++){
+  inputs[i] = {innerValue: 0.5, weights: null, bias: null, sources: null, propagate: null};
+}
+  
+if(layersNumber === 2){
+  print("setup output layer (layer 1)");
+  for(let i = 0; i<outputsNumber; i++){
+    outputs[i] = {innerValue: 0.5, weights: new Array(inputsNumber), bias: (Math.random() - 0.5), sources: inputs};
+    
+    outputs[i].propagate = function(){
+      let sum = 0;
+      for(let i = 0; i<inputsNumber; i++){
+        sum += this.sources[i].innerValue * this.weights[i];
+      }
+      sum += this.bias;
+      this.innerValue = 1/(1+Math.pow(Math.E, (sum * -1)));
+      return 1/(1+Math.pow(Math.E, (sum * -1)));
+    }
+    
+    outputs[i].numOfVarsToBeChanged = outputs[i].weights.length + 1;
+    
+    outputs[i].changeVar_idx_val = function(){
+      if(idx === this.weights.length){
+        this.bias += val;
+      } else if (idx >= 0 && idx < this.weights.length){
+        this.weights[idx] += val;
+      }
+    }
+    
+    for(let j = 0; j<inputsNumber; j++){
+      outputs[i].weights[j] = (Math.random() - 0.5);
+    }
+    outputs[i].propagate();
+  }
+} else {
+  
+  //setup hidden layers
+  for(let h = 0; h<layersNumber - 2; h++){
+    print("setup hidden layer (layer " + (h+1) + ")");
+    for(let i = 0; i<hiddenNumber; i++){
+
+      if(h === 0){
+        //this is layer 1
+        
+        hiddenlayermatrix[h][i] = {innerValue: 0.5, weights: new Array(inputsNumber), bias: (Math.random() - 0.5), sources: inputs};
+    
+        hiddenlayermatrix[h][i].propagate = function(){
+          let sum = 0;
+          for(let i = 0; i<inputsNumber; i++){
+            sum += this.sources[i].innerValue * this.weights[i];
+          }
+          sum += this.bias;
+          this.innerValue = 1/(1+Math.pow(Math.E, (sum * -1)));
+          return 1/(1+Math.pow(Math.E, (sum * -1)));
+        }
+        
+        hiddenlayermatrix[h][i].numOfVarsToBeChanged = hiddenlayermatrix[h][i].weights.length + 1;
+
+        hiddenlayermatrix[h][i].changeVar_idx_val = function(){
+          if(idx === this.weights.length){
+            this.bias += val;
+          } else if (idx >= 0 && idx < this.weights.length){
+            this.weights[idx] += val;
+          }
+
+        }
+        
+        for(let j = 0; j<inputsNumber; j++){
+          hiddenlayermatrix[h][i].weights[j] = (Math.random() - 0.5);
+        }
+        hiddenlayermatrix[h][i].propagate();
+
+      } else {
+        // turns out this is not layer 1 after all
+        hiddenlayermatrix[h][i] = {innerValue: 0.5, weights: new Array(hiddenNumber), bias: (Math.random() - 0.5), sources: hiddenlayermatrix[h-1]};
+    
+        hiddenlayermatrix[h][i].propagate = function(){
+          let sum = 0;
+          for(let i = 0; i<hiddenNumber; i++){
+            sum += this.sources[i].innerValue * this.weights[i];
+          }
+          sum += this.bias;
+          this.innerValue = 1/(1+Math.pow(Math.E, (sum * -1)));
+          return 1/(1+Math.pow(Math.E, (sum * -1)));
+        }
+
+        hiddenlayermatrix[h][i].numOfVarsToBeChanged = hiddenlayermatrix[h][i].weights.length + 1;
+
+        hiddenlayermatrix[h][i].changeVar_idx_val = function(){
+          if(idx === this.weights.length){
+            this.bias += val;
+          } else if (idx >= 0 && idx < this.weights.length){
+            this.weights[idx] += val;
+          }
+
+        }
+    
+        for(let j = 0; j<hiddenNumber; j++){
+          hiddenlayermatrix[h][i].weights[j] = (Math.random() - 0.5);
+        }
+        hiddenlayermatrix[h][i].propagate();
+      }
+    }
+  }
+
+  //setup output layer
+  print("setup output layer (layer " + (layersNumber -1) + ")");
+  for(let i = 0; i<outputsNumber; i++){
+    outputs[i] = {innerValue: 0.5, weights: new Array(hiddenNumber), bias: (Math.random() - 0.5), sources: hiddenlayermatrix[0]};
+    outputs[i].propagate = function(){
+      let sum = 0;
+      for(let i = 0; i<hiddenNumber; i++){
+        sum += this.sources[i].innerValue * this.weights[i];
+      }
+      sum += this.bias;
+      this.innerValue = 1/(1+Math.pow(Math.E, (sum * -1)));
+      return 1/(1+Math.pow(Math.E, (sum * -1)));
+    }
+
+    outputs[i].numOfVarsToBeChanged = outputs[i].weights.length + 1;
+
+    outputs[i].changeVar_idx_val = function(){
+      if(idx === this.weights.length){
+        this.bias += val;
+      } else if (idx >= 0 && idx < this.weights.length){
+        this.weights[idx] += val;
+      }
+    }
+    
+    for(let j = 0; j<hiddenNumber; j++){
+      outputs[i].weights[j] = (Math.random() - 0.5);
+    }
+    outputs[i].propagate();
+  }
+}
+
+print("finished setup");
+
+drawTheEntireNetwork();
+
+print(returnOutputAsArray());
+
+progressUI(2);
+
+//inputs[0].innerValue = 1;
+//inputs[1].innerValue = 0;
+//inputs[2].innerValue = 1;
+
+//propagateEntireMatrix();
+
+//drawTheEntireNetwork();
+
+}
+
+let trainingSet_IN = new Array(0);
+let trainingSet_OUT = new Array(0);
+  
+function User_chose_backprop(){
+  clearprinting();
+  progressUI(3.1);
+  document.getElementById("backprop_training_inputs_appear").innerHTML =  "Here you can enter the practice problems for backpropagation. <br>";
+
+  for(let g = 0; g < inputsNumber; g++){
+    document.getElementById("backprop_training_inputs_appear" ).innerHTML += '<input id = "trainingInput' + g + '" placeholder = "input neuron ' + (g+1) + ' value" >';
+  }
+
+  document.getElementById("backprop_training_inputs_appear" ).innerHTML += "<br>";
+  
+  for(let h = 0; h < outputsNumber; h++){
+    document.getElementById("backprop_training_inputs_appear" ).innerHTML += '<input id = "trainingOutput' + h + '" placeholder = "expected value of output neuron ' + (h+1) + '" >';
+  }
+}
+
+
+function User_chose_pixelImage(){
+  pixel = true;
+  
+  if(document.getElementById( "PixelRowSize" ).value == ""){
+    print("Enter the value first");
+    return;
+  } else if (isNaN(parseInt(document.getElementById("PixelRowSize").value))){
+    print("Make it a number");
+    return;
+  } else if (parseInt( document.getElementById( "PixelRowSize" ).value) < 1 || parseInt( document.getElementById( "PixelRowSize" ).value) > inputsNumber){
+    print("The number doesn't work");
+    return;
+  }
+  
+  pixelRowSize = parseInt( document.getElementById( "PixelRowSize" ).value);
+  
+  clearprinting();
+  progressUI(3.1);
+  document.getElementById("backprop_training_inputs_appear").innerHTML =  "Here you can enter the practice problems for backpropagation. <br>";
+
+  for(let g = 0; g < inputsNumber; g++){
+    if (g % pixelRowSize == 0){
+      document.getElementById("backprop_training_inputs_appear" ).innerHTML += "<br>";
+    }
+    document.getElementById("backprop_training_inputs_appear" ).innerHTML += '<button class = "borderlessbutton" id = "trainingInput' + g + '" onclick = "changePixel(' + g + ')" value = "0">🌑</button>';
+  }
+
+  // <button class = "borderlessbutton">🌑</button>
+
+  document.getElementById("backprop_training_inputs_appear" ).innerHTML += "<br><br><br>";
+  
+  for(let h = 0; h < outputsNumber; h++){
+    document.getElementById("backprop_training_inputs_appear" ).innerHTML += '<input id = "trainingOutput' + h + '" placeholder = "expected value of output neuron ' + (h+1) + '" >';
+  }
+}
+
+function changePixel(g){
+  p = document.getElementById("trainingInput" + g).innerHTML;
+
+  if(p == "🌑"){
+    document.getElementById("trainingInput" + g).innerHTML = "🌘";
+    document.getElementById("trainingInput" + g).value = "0.25";
+  } else if(p == "🌘"){
+    document.getElementById("trainingInput" + g).innerHTML = "🌗";
+    document.getElementById("trainingInput" + g).value = "0.5";
+  } else if(p == "🌗"){
+    document.getElementById("trainingInput" + g).innerHTML = "🌖";
+    document.getElementById("trainingInput" + g).value = "0.75";
+  } else if(p == "🌖"){
+    document.getElementById("trainingInput" + g).innerHTML = "🌕";
+    document.getElementById("trainingInput" + g).value = "1";
+  } else {
+    document.getElementById("trainingInput" + g).innerHTML = "🌑";
+    document.getElementById("trainingInput" + g).value = "0";
+  }
+  
+}
+
+function changePixel2(g){
+  p = document.getElementById("finalTryInput" + g).innerHTML;
+
+  if(p == "🌑"){
+    document.getElementById("finalTryInput" + g).innerHTML = "🌘";
+    document.getElementById("finalTryInput" + g).value = "0.25";
+  } else if(p == "🌘"){
+    document.getElementById("finalTryInput" + g).innerHTML = "🌗";
+    document.getElementById("finalTryInput" + g).value = "0.5";
+  } else if(p == "🌗"){
+    document.getElementById("finalTryInput" + g).innerHTML = "🌖";
+    document.getElementById("finalTryInput" + g).value = "0.75";
+  } else if(p == "🌖"){
+    document.getElementById("finalTryInput" + g).innerHTML = "🌕";
+    document.getElementById("finalTryInput" + g).value = "1";
+  } else {
+    document.getElementById("finalTryInput" + g).innerHTML = "🌑";
+    document.getElementById("finalTryInput" + g).value = "0";
+  }
+  
+}
+
+function Backprop_exercise_add(){
+  let new_ex_in = new Array(inputsNumber);
+  for(let q = 0; q < inputsNumber; q++){
+    new_ex_in[q] = parseFloat(document.getElementById("trainingInput" + q ).value);
+    if(new_ex_in[q] > 1 || new_ex_in[q] < 0){
+      print("⚠️ERROR: some values aren't in range 0 to 1");
+      return;
+    }
+    if(!pixel){
+      document.getElementById("trainingInput" + q ).value = "";
+    }
+  }
+
+  let new_ex_out = new Array(outputsNumber);
+  for(let r = 0; r < outputsNumber; r++){
+    new_ex_out[r] = parseFloat(document.getElementById("trainingOutput" + r ).value);
+    if(new_ex_out[r] > 1 || new_ex_out[r] < 0){
+      print("⚠️ERROR: some values aren't in range 0 to 1");
+      return;
+    }
+      document.getElementById("trainingOutput" + r ).value = "";
+  }
+
+  print("Exercise #"+ (trainingSet_IN.length + 1) +" Input: " + new_ex_in);
+  print("Exercise #"+ (trainingSet_IN.length + 1) +" Output: " + new_ex_out);
+  
+  trainingSet_IN.push(new_ex_in);
+  trainingSet_OUT.push(new_ex_out);
+}
+
+function Undo_backprop_exercise(){
+  if(trainingSet_IN.length > 0){
+    print("   Removing exercise #" + trainingSet_IN.length);
+    trainingSet_IN.pop();
+    trainingSet_OUT.pop();
+    print("   Now there are " + trainingSet_IN.length + " exercises.");
+  }
+  
+}
+  
+function propagate_Examples_1batch(){
+  let BatchError = 0.0;
+  let SingleError = 0.0;
+  let NetworkOutput;
+
+  for(var y = 0; y < trainingSet_IN.length; y++){
+    for(var x = 0; x < inputs.length; x++){
+      inputs[x].innerValue = trainingSet_IN[y][x];
+    }
+
+    propagateEntireMatrix();
+    NetworkOutput = returnOutputAsArray();
+    SingleError = calculate1cost(NetworkOutput, trainingSet_OUT[y]);
+    //print("The error for 1 exercise is: " + SingleError);
+    BatchError += SingleError;
+  }
+  BatchError = BatchError / trainingSet_IN.length;
+  //print("The total average error is: " + BatchError);
+  return BatchError;
+}
+
+function train_Network_once(learn_rate){
+  //train the hidden neurons
+  var batch_error_before;
+  var batch_error_after;
+  var gradient;
+
+  if(layersNumber > 2){
+  for(var layer = 0; layer < hiddenlayermatrix.length; layer++){
+    for(var thisneuron = 0; thisneuron < hiddenNumber; thisneuron++){
+      for(var whatToChange = 0; whatToChange < hiddenlayermatrix[layer][thisneuron].numOfVarsToBeChanged; whatToChange++){
+        batch_error_before = propagate_Examples_1batch();
+        idx = whatToChange;
+        val = 0.001;
+        hiddenlayermatrix[layer][thisneuron].changeVar_idx_val();
+        batch_error_after = propagate_Examples_1batch();
+        gradient = (batch_error_after - batch_error_before) / 0.001;
+        val = -0.001;
+        hiddenlayermatrix[layer][thisneuron].changeVar_idx_val();
+        val = (gradient * (-1 * learn_rate));
+        hiddenlayermatrix[layer][thisneuron].changeVar_idx_val();
+      }
+    }
+  }
+  }
+
+  //train the output neurons
+  for(var thisneuron = 0; thisneuron < outputsNumber; thisneuron++){
+    for(var whatToChange = 0; whatToChange < outputs[thisneuron].numOfVarsToBeChanged; whatToChange++){
+      batch_error_before = propagate_Examples_1batch();
+      idx = whatToChange;
+      val = 0.001;
+      outputs[thisneuron].changeVar_idx_val();
+      batch_error_after = propagate_Examples_1batch();
+      gradient = (batch_error_after - batch_error_before) / 0.001;
+      val = -0.001;
+      outputs[thisneuron].changeVar_idx_val();
+      val = (gradient * (-1 * learn_rate));
+      outputs[thisneuron].changeVar_idx_val();
+    }
+  }
+
+  batch_error_after = propagate_Examples_1batch();
+  document.getElementById("ShowError").innerHTML = "Error: " + batch_error_after;
+  
+  for(var h = 0; h<inputsNumber; h++){
+    inputs[h].innerValue = 0.5;
+  }
+  propagateEntireMatrix();
+  drawTheEntireNetwork();
+}
+  
+function Backprop_exercise_done(){
+  print("Input Table");
+  print(trainingSet_IN);
+  print("Output Table");
+  print(trainingSet_OUT);
+
+  progressUI(4.1);
+}
+
+function backprop1(){
+  train_Network_once(1);
+}
+
+function backprop10(){
+  for(var x = 0; x<10; x++){
+    train_Network_once(1);
+  }
+}
+
+function backprop100(){
+  for(var x = 0; x<100; x++){
+    train_Network_once(1);
+  }
+}
+
+function backpropAllDone(){
+  progressUI(5.1);
+
+  document.getElementById("final_try_inputs_appear").innerHTML =  "Now interface with the network! See how it responds! <br>";
+
+  if(!pixel){
+    for(let g = 0; g < inputsNumber; g++){
+      document.getElementById("final_try_inputs_appear" ).innerHTML += '<input id = "finalTryInput' + g + '" placeholder = "input neuron ' + (g+1) + ' value" >';
+    }
+  } else {
+    for(let g = 0; g < inputsNumber; g++){
+      if(g % pixelRowSize === 0){
+        document.getElementById( "final_try_inputs_appear").innerHTML += "<br>";
+      }
+    document.getElementById( "final_try_inputs_appear").innerHTML += '<button class = "borderlessbutton" id = "finalTryInput' + g + '" onclick = "changePixel2(' + g + ')" value = "0">🌑</button>';
+    }
+  }
+  
+}
+
+function tryInput(){
+  for(var f = 0; f<inputsNumber; f++){
+    inputs[f].innerValue = parseFloat(document.getElementById( "finalTryInput" + f).value);
+  }
+  propagateEntireMatrix();
+  drawTheEntireNetwork();
+  document.getElementById("tryOut").innerHTML = "Output: <br>";
+  for(var j = 0; j<outputsNumber; j++){
+    document.getElementById("tryOut").innerHTML += (Math.round(outputs[j].innerValue * 1000) / 1000.0) + "<br>";
+  }
+}
+
+function printFile(){
+  document.getElementById("print").innerHTML = "Copy this entire piece of text into a Google Doc or Word file and save it for later:\n\n";
+  document.getElementById("print").innerHTML += writeFile();
+}
+  
+function writeFile(){
+  var file = "";
+  file += "I" + inputsNumber + "i";
+  file += "O" + outputsNumber + "o";
+  file += "L" + layersNumber + "l";
+  file += "H" + hiddenNumber + "h";
+
+  print("error catch 1");
+
+  for(let hlayerfind = 0; hlayerfind < (layersNumber - 2); hlayerfind++){
+    print("error catch 1 and 1/2");
+    
+    file += "<";
+    for(var hfind = 0; hfind < hiddenlayermatrix[0].length; hfind++){
+      file += "(";
+      for(var w = 0; w < hiddenlayermatrix[hlayerfind][hfind].weights.length; w++){
+        file += "W";
+        file += hiddenlayermatrix[hlayerfind][hfind].weights[w];
+        file += "w";
+      }
+      file += "B";
+      file += hiddenlayermatrix[hlayerfind][hfind].bias;
+      file += "b";
+      
+      file += ")";
+    }
+    file += ">";
+  }
+
+  print("error catch 2");
+  
+  file += "<";
+  for(var ofind = 0; ofind < outputsNumber; ofind++){
+    file += "(";
+    for(var w = 0; w < outputs[ofind].weights.length; w++){
+      file += "W";
+      file += outputs[ofind].weights[w];
+      file += "w";
+    }
+    file += "B";
+    file += outputs[ofind].bias;
+    file += "b";
+    
+    file += ")";
+  }
+  file += ">";
+
+  if(pixel){
+    file += "p" + pixelRowSize + "x";
+  }
+
+  print("error catch 3");
+  
+  return file;
+}
+
+function readFile(file){
+  clearprinting();
+
+  print("WHOLE FILE " + file + " END WHOLE FILE");
+
+  if(file.indexOf("p") != -1){
+    pixel = true;
+    pixelRowSize = parseInt(file.substring(file.indexOf("p") + 1, file.indexOf("x")));
+  }
+  
+  inputsNumber = parseInt(file.substring(file.indexOf("I") + 1, file.indexOf("i")));
+  outputsNumber = parseInt(file.substring(file.indexOf("O") + 1, file.indexOf("o")));
+  layersNumber = parseInt(file.substring(file.indexOf("L") + 1, file.indexOf("l")));
+  hiddenNumber = parseInt(file.substring(file.indexOf("H") + 1, file.indexOf("h")));
+
+  var layerskipidx = 0;
+  var neuronskipidx = 0;
+  var weightbiasskipidx = 0;
+  var file_layer = "";
+  var file_neuron = "";
+  var file_weightbias = "";
+
+  I_am_ready(0);
+  
+  for(var layer = 0; layer < layersNumber - 2; layer++){
+    neuronskipidx = 0;
+    file_layer = file.substring(file.indexOf("<", layerskipidx) + 1, file.indexOf(">", layerskipidx));
+
+    print("   FILE LAYER " + file_layer + " END FILE LAYER");
+
+    for(var neuron = 0; neuron < hiddenNumber; neuron++){
+      weightbiasskipidx = 0;
+      file_neuron = file_layer.substring(file_layer.indexOf("(", neuronskipidx) + 1, file_layer.indexOf(")", neuronskipidx));
+
+      print("      FILE NEURON " + file_neuron + " END FILE NEURON");
+
+      for(var getweight = 0; getweight < hiddenlayermatrix[layer][neuron].weights.length; getweight++){
+        file_weightbias = file_neuron.substring(file_neuron.indexOf("W", weightbiasskipidx) + 1, file_neuron.indexOf("w", weightbiasskipidx));
+        print("         WEIGHT " + file_weightbias + " END WEIGHT");
+        hiddenlayermatrix[layer][neuron].weights[getweight] = parseFloat(file_weightbias);
+        weightbiasskipidx = file_neuron.indexOf("w", weightbiasskipidx) + 1;
+      }
+
+      file_weightbias = file_neuron.substring(file_neuron.indexOf("B") + 1,file_neuron.indexOf("b"));
+      print("         BIAS " + file_weightbias + " END BIAS");
+      hiddenlayermatrix[layer][neuron].bias = parseFloat(file_weightbias);
+      
+      neuronskipidx = file_layer.indexOf(")", neuronskipidx) + 1;
+    }
+    
+    layerskipidx = file.indexOf(">", layerskipidx) + 1;
+  }
+
+  //have finished hidden layers
+
+  neuronskipidx = 0;
+    file_layer = file.substring(file.indexOf("<", layerskipidx) + 1, file.indexOf(">", layerskipidx));
+
+    print("   FILE LAYER " + file_layer + " END FILE LAYER");
+
+    for(var neuron = 0; neuron < outputsNumber; neuron++){
+      weightbiasskipidx = 0;
+      file_neuron = file_layer.substring(file_layer.indexOf("(", neuronskipidx) + 1, file_layer.indexOf(")", neuronskipidx));
+
+      print("      FILE NEURON " + file_neuron + " END FILE NEURON");
+
+      for(var getweight = 0; getweight < outputs[neuron].weights.length; getweight++){
+        file_weightbias = file_neuron.substring(file_neuron.indexOf("W", weightbiasskipidx) + 1, file_neuron.indexOf("w", weightbiasskipidx));
+        print("         WEIGHT " + file_weightbias + " END WEIGHT");
+        outputs[neuron].weights[getweight] = parseFloat(file_weightbias);
+        weightbiasskipidx = file_neuron.indexOf("w", weightbiasskipidx) + 1;
+      }
+
+      file_weightbias = file_neuron.substring(file_neuron.indexOf("B") + 1,file_neuron.indexOf("b"));
+      print("         BIAS " + file_weightbias + " END BIAS");
+      outputs[neuron].bias = parseFloat(file_weightbias);
+      
+      neuronskipidx = file_layer.indexOf(")", neuronskipidx) + 1;
+    }  
+
+  propagateEntireMatrix();
+  drawTheEntireNetwork();
+  backpropAllDone();
+}
+
+  function processImport(){
+    var file = document.getElementById("importText").value;
+    if(file != ""){
+      readFile(file);
+      //I2iO1oL2lH0h<(W8.061684397329675wW8.06168290304097wB-3.79575865777505b)>
+      //I1iO1oL3lH1h<(W-5.948568600485779wB2.535945974643369b)><(W8.502891363814378wB-3.9789624958008063b)>
+    }
+  }
+
+</script>
+  
+
+
+</body>
+
+</html>
