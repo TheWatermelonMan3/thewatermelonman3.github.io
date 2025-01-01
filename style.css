@@ -92,6 +92,12 @@ a{
   transform:translateY(5px);
 }
 
+.a2:hover{
+  color: #e32802;
+  transition: 0.5s;
+  transform:translateY(5px);
+}
+
 textarea{
   background-color: #80e1ff;
   border-radius:10px;
