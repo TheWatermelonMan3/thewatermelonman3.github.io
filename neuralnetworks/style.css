@@ -2,7 +2,7 @@
 html, body {
   background: #dbffdb;
   height: 100%;
-  width: 100%;
+  width: calc(100vw - 20px);
   font-family: "Quicksand", "Helvetica", sans-serif;
 }
 
