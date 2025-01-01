@@ -29,6 +29,7 @@ button{
 .button:hover{
   background-color: #1cfc03;
   transition: 0.5s;
+  transform: translateY(-5px);
 }
 
 .specialbutton{
@@ -46,6 +47,7 @@ button{
 .specialbutton:hover{
   background-color: #ffc800;
   transition: 0.5s;
+  transform: translateY(-5px);
 }
 
 .borderlessbutton{
@@ -85,10 +87,12 @@ a{
 
 .a:hover{
   color: #1cfc03;
+  transition: 0.5s;
 }
 
 .a3:hover{
-  color: #e32802;
+  color: #ffeb14;
+  transition: 0.5s;
 }
 
 textarea{
