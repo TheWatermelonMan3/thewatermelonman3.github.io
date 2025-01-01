@@ -89,19 +89,19 @@ a{
 .a:hover{
   color: #1cfc03;
   transition: 0.5s;
-  /*transform:translateY(5px);*/
+  /*transform:translateY(0px);*/
 }
 
 a2{
   font-weight: bold;
   color: #00bbff;
-  /*transform:translateY(0px);*/
+  transform:translateY(0px);
 }
 
 .a2:hover{
   color: #e32802;
   transition: 0.5s;
-  /*transform:translateY(5px);*/
+  transform:translateY(0px);
 }
 
 textarea{
