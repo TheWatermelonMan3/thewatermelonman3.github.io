@@ -5,6 +5,20 @@ let secondsPassed;
 let oldTimeStamp;
 let fps;
 
+let canvas;
+let context;
+
+window.onload = init;
+
+function init(){
+    canvas = document.getElementById('canvas');
+    context = canvas.getContext('2d');
+
+    // Start the first frame request
+    console.log("Game Initiated");
+    window.requestAnimationFrame(gameLoop);
+}
+
 function gameLoop(timeStamp) {
 
     // Calculate the number of seconds passed since the last frame
