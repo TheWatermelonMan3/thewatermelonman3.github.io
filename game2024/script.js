@@ -57,7 +57,7 @@ function gameLoop(timeStamp) {
 
     // Draw number to the screen
     context.fillStyle = 'yellow';
-    context.fillRect(0, 0, 200, 100);
+    context.fillRect(0, 0, 200, 50);
     context.font = '25px Arial';
     context.fillStyle = 'black';
     context.fillText("FPS: " + fps, 10, 30);
@@ -68,7 +68,7 @@ function gameLoop(timeStamp) {
     // The loop function has reached it's end. Keep requesting new frames
     if (key("Escape")){
         context.fillStyle = 'yellow';
-        context.fillRect(0, 0, 200, 100);
+        context.fillRect(0, 0, 200, 50);
         context.font = '25px Arial';
         context.fillStyle = 'black';
         context.fillText("Escape");
