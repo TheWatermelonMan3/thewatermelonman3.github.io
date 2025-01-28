@@ -71,7 +71,7 @@ function gameLoop(timeStamp) {
         context.fillRect(0, 0, 200, 50);
         context.font = '25px Arial';
         context.fillStyle = 'black';
-        context.fillText("Escape");
+        context.fillText("Escape", 10, 30);
         console.log("Game End: terminated via ESCAPE key");
     } else {
         window.requestAnimationFrame(gameLoop);
