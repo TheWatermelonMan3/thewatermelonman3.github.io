@@ -8,6 +8,33 @@ let fps;
 let canvas;
 let context;
 
+let relevantkeysList = ["ArrowRight", "ArrowLeft", "ArrowUp", "ArrowDown", "Escape", "KeyW", "KeyA", "KeyS", "KeyD", "KeyQ", "KeyE", "KeyH", "Space"];
+let pressedkeysList = [];
+
+//             KEYLISTENERS
+function key(keycode) {
+  return (pressedkeysList.indexOf(keycode) != -1);
+}
+
+document.addEventListener('keydown', (e) => {
+  if (relevantkeysList.indexOf(e.code) != -1) {
+    if (!key(e.code)) {
+      pressedkeysList.push(e.code);
+      calculateAxisInput();
+    }
+    e.preventDefault();
+  }
+});
+document.addEventListener('keyup', (e) => {
+  if (relevantkeysList.indexOf(e.code) != -1) {
+    let idx = pressedkeysList.indexOf(e.code)
+    if (idx > -1) {
+      pressedkeysList.splice(idx, 1);
+      calculateAxisInput();
+    }
+  }
+});
+
 window.onload = init;
 
 function init(){
@@ -29,7 +56,7 @@ function gameLoop(timeStamp) {
     fps = Math.round(1 / secondsPassed);
 
     // Draw number to the screen
-    context.fillStyle = 'white';
+    context.fillStyle = 'yellow';
     context.fillRect(0, 0, 200, 100);
     context.font = '25px Arial';
     context.fillStyle = 'black';
@@ -39,7 +66,15 @@ function gameLoop(timeStamp) {
     draw();
 
     // The loop function has reached it's end. Keep requesting new frames
-    window.requestAnimationFrame(gameLoop);
+    if (key("Escape")){
+        context.fillStyle = 'yellow';
+        context.fillRect(0, 0, 200, 100);
+        context.font = '25px Arial';
+        context.fillStyle = 'black';
+        context.fillText("Escape");
+    } else {
+        window.requestAnimationFrame(gameLoop);
+    }
 }
 
 function draw(){
