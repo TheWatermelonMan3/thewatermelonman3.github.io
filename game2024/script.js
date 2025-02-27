@@ -82,6 +82,8 @@ function gameLoop(timeStamp) {
 
 function draw(){
   let randomColor = Math.random() > 0.5? '#ff8080' : '#0099b0';
-        context.fillStyle = randomColor;
-        context.fillRect(100, 50, 200, 175);
+  context.fillStyle = randomColor;
+  context.fillRect(100, 50, 200, 175);
+  context.fillStyle = "black";
+  context.fillRect(0, 0, canvas.height, canvas.width);
 }
