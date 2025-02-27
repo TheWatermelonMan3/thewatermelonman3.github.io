@@ -1,6 +1,4 @@
 console.log("Script works");
-canvas.height = window.innerHeight;
-canvas.width = window.innerWidth;
 
 //The game loop code is from the source: https://spicyyoghurt.com/tutorials/html5-javascript-game-development/create-a-proper-game-loop-with-requestanimationframe
 let secondsPassed;
@@ -42,6 +40,8 @@ window.onload = init;
 function init(){
     canvas = document.getElementById('canvas');
     context = canvas.getContext('2d');
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
     canvas.height = window.clientHeight;
     canvas.width = window.clientWidth;
 
