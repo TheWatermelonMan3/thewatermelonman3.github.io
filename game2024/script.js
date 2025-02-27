@@ -38,10 +38,24 @@ document.addEventListener('keyup', (e) => {
 window.onload = init;
 
 function init(){
+  //code from: https://javascript.info/task/scrollbar-width
+    // create a div with the scroll
+  let div = document.createElement('div');
+
+  div.style.overflowY = 'scroll';
+  div.style.width = '50px';
+  div.style.height = '50px';
+
+  // must put it in the document, otherwise sizes will be 0
+  document.body.append(div);
+  let scrollWidth = div.offsetWidth - div.clientWidth;
+
+  div.remove();
+  
     canvas = document.getElementById('canvas');
     context = canvas.getContext('2d');
-    canvas.height = window.innerHeight - 12;
-    canvas.width = window.innerWidth - 12;
+    canvas.height = window.innerHeight - scrollWidth;
+    canvas.width = window.innerWidth - scrollWidth;
 
     // Start the first frame request
     console.log("Game Initiated");
