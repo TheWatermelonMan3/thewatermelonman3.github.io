@@ -57,6 +57,9 @@ function gameLoop(timeStamp) {
     // Calculate fps
     fps = Math.round(1 / secondsPassed);
 
+    // Perform the drawing operation
+    draw();
+
     // Draw number to the screen
     context.fillStyle = 'yellow';
     context.fillRect(0, 0, 200, 50);
@@ -64,10 +67,7 @@ function gameLoop(timeStamp) {
     context.fillStyle = 'black';
     context.fillText("FPS: " + fps, 10, 30);
 
-    // Perform the drawing operation
-    draw();
-
-    // The loop function has reached it's end. Keep requesting new frames
+    // The loop function has reached its end. Keep requesting new frames
     if (key("Escape")){
         context.fillStyle = 'yellow';
         context.fillRect(0, 0, 200, 50);
@@ -81,9 +81,10 @@ function gameLoop(timeStamp) {
 }
 
 function draw(){
+  context.fillStyle = "black";
+  context.fillRect(0, 0, canvas.width, canvas.height);
+  
   let randomColor = Math.random() > 0.5? '#ff8080' : '#0099b0';
   context.fillStyle = randomColor;
   context.fillRect(100, 50, 200, 175);
-  context.fillStyle = "black";
-  context.fillRect(0, 0, canvas.height, canvas.width);
 }
