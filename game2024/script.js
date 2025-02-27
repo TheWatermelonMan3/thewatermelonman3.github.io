@@ -40,6 +40,8 @@ window.onload = init;
 function init(){
     canvas = document.getElementById('canvas');
     context = canvas.getContext('2d');
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
 
     // Start the first frame request
     console.log("Game Initiated");
