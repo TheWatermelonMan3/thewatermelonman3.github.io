@@ -64,7 +64,6 @@ document.addEventListener('keyup', (e) => {
     let idx = pressedkeysList.indexOf(e.code)
     if (idx > -1) {
       pressedkeysList.splice(idx, 1);
-      calculateAxisInput();
     }
   }
 });
