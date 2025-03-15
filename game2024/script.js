@@ -54,7 +54,6 @@ document.addEventListener('keydown', (e) => {
   if (relevantkeysList.indexOf(e.code) != -1) {
     if (!key(e.code)) {
       pressedkeysList.push(e.code);
-      calculateAxisInput();
     }
     e.preventDefault();
   }
