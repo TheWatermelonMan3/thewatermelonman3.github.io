@@ -225,5 +225,5 @@ function draw(){
   let randomColor = Math.random() > 0.5? '#ff8080' : '#0099b0';
   context.fillStyle = randomColor;
   context.fillRect(100, 50, 200, 175);
-  context.drawImage(img("Cant")), 500, 600, 50, 50);
+  context.drawImage(img("Cant"), 500, 600, 50, 50);
 }
