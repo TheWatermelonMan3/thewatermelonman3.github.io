@@ -23,6 +23,8 @@ let mouseclicked = false;
 let mousex = 0;
 let mousey = 0;
 
+let loaded = false;
+
 function clickDOWN(){
   if (loaded){
     mouseclicked = true;
@@ -158,6 +160,7 @@ window.onload = function() {
 };
 
 function init(){
+  loaded = true;
   //code from: https://javascript.info/task/scrollbar-width
     // create a div with the scroll
   let div = document.createElement('div');
