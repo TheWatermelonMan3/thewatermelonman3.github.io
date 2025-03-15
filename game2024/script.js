@@ -8,6 +8,14 @@ let fps;
 let canvas;
 let context;
 
+let imgFilenameList = ['Canteloupe.png'];
+let imgList = [];
+let imgNicknameList = ['Cant'];
+
+let adiFilenameList = ['Kick Sounds.mp3'];
+let adiList = [];
+let adiNicknameList = ['kick'];
+
 let relevantkeysList = ["ArrowRight", "ArrowLeft", "ArrowUp", "ArrowDown", "Escape", "KeyW", "KeyA", "KeyS", "KeyD", "KeyQ", "KeyE", "KeyH", "Space"];
 let pressedkeysList = [];
 
@@ -35,7 +43,95 @@ document.addEventListener('keyup', (e) => {
   }
 });
 
-window.onload = init;
+function img(nickname) {
+  let idx = imgNicknameList.indexOf(nickname);
+  if (idx == -1) {
+    return null;
+  } else {
+    return imgList[idx];
+  }
+}
+
+function adi(nickname) {
+  let idx = adiNicknameList.indexOf(nickname);
+  if (idx == -1) {
+    return null;
+  } else {
+    return adiList[idx];
+  }
+}
+
+function checkAdiIP(adi){
+  return adi.currentAudio && adi.currentAudio.currentTime>0 && !adi.currentAudio.paused && !adi.currentAudio.ended && adi.currentAudio.readyState>2;
+}
+
+function safePlay(adi){
+  if(!checkAdiIP(adi)){
+    adi.play();
+  }
+}
+
+function restartPlay(adi){
+  adi.currentTime = 0;
+  adi.play();
+}
+
+function loadImage(imageNameList, idx) {
+  let img = new Image(); // Create new img element
+  if (idx < imageNameList.length - 1) {
+    img.addEventListener(
+      "load",
+      () => {
+        console.log(img.toString() + idx);
+        imgList.push(img);
+        loadImage(imageNameList, idx + 1);
+      },
+      false,
+    );
+  } else {
+    img.addEventListener(
+      "load",
+      () => {
+        console.log(img.toString() + idx);
+        imgList.push(img);
+        loadAudio(adiFilenameList, 0);
+      },
+      false,
+    );
+  }
+  img.src = imageNameList[idx];
+}
+
+function loadAudio(audioNameList, idx) {
+  let adi = new Audio(audioNameList[idx]); // Create new img element
+  if (idx < audioNameList.length - 1) {
+    
+    adi.addEventListener(
+      "loadstart",
+      () => {
+        console.log(adi.toString() + idx);
+        adiList.push(adi);
+        loadAudio(audioNameList, idx + 1);
+      },
+      false,
+    );
+  } else {
+    adi.addEventListener(
+      "loadstart",
+      () => {
+        console.log(adi.toString() + idx);
+        adiList.push(adi);
+        init();
+      },
+      false,
+    );
+  }
+  adi.src = audioNameList[idx];
+}
+
+window.onload = function() {
+  loadImage(imgFilenameList, 0);
+};
 
 function init(){
   //code from: https://javascript.info/task/scrollbar-width
@@ -92,6 +188,10 @@ function gameLoop(timeStamp) {
     } else {
         window.requestAnimationFrame(gameLoop);
     }
+
+    if (key("KeyA")){
+      safePlay(adi("Kick"));
+    }
 }
 
 function draw(){
@@ -101,4 +201,5 @@ function draw(){
   let randomColor = Math.random() > 0.5? '#ff8080' : '#0099b0';
   context.fillStyle = randomColor;
   context.fillRect(100, 50, 200, 175);
+  context.drawImage(img("Cant")), 300, 400, 50, 50);
 }
