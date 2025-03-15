@@ -19,6 +19,32 @@ let adiNicknameList = ['kick'];
 let relevantkeysList = ["ArrowRight", "ArrowLeft", "ArrowUp", "ArrowDown", "Escape", "KeyW", "KeyA", "KeyS", "KeyD", "KeyQ", "KeyE", "KeyH", "Space"];
 let pressedkeysList = [];
 
+let mouseclicked = false;
+let mousex = 0;
+let mousey = 0;
+
+function clickDOWN(){
+  if (loaded){
+    mouseclicked = true;
+  }
+}
+
+function clickMOVE(event){
+  if (loaded){
+    var rect = canvas.getBoundingClientRect();
+    mousex = event.clientX - rect.left;
+    mousey = event.clientY - rect.top;
+    mousex = (mousex - centerx)/cameraZoom + cameraX;
+    mousey = (centery - mousey)/cameraZoom - cameraY;
+  }
+}
+
+function clickUP(){
+  if (loaded){
+    mouseclicked = false;
+  }
+}
+
 //             KEYLISTENERS
 function key(keycode) {
   return (pressedkeysList.indexOf(keycode) != -1);
