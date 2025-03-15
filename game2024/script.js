@@ -14,7 +14,7 @@ let imgNicknameList = ['Cant'];
 
 let adiFilenameList = ['Kick Sounds.mp3'];
 let adiList = [];
-let adiNicknameList = ['kick'];
+let adiNicknameList = ['Kick'];
 
 let relevantkeysList = ["ArrowRight", "ArrowLeft", "ArrowUp", "ArrowDown", "Escape", "KeyW", "KeyA", "KeyS", "KeyD", "KeyQ", "KeyE", "KeyH", "Space"];
 let pressedkeysList = [];
@@ -106,7 +106,7 @@ function loadImage(imageNameList, idx) {
     img.addEventListener(
       "load",
       () => {
-        console.log(img.toString() + idx);
+        console.log("Loading image " + img.toString() + idx + " with nickname " + imgNicknameList[idx]);
         imgList.push(img);
         loadImage(imageNameList, idx + 1);
       },
@@ -116,7 +116,7 @@ function loadImage(imageNameList, idx) {
     img.addEventListener(
       "load",
       () => {
-        console.log(img.toString() + idx);
+        console.log("Loading image " + img.toString() + idx + " with nickname " + imgNicknameList[idx]);
         imgList.push(img);
         loadAudio(adiFilenameList, 0);
       },
@@ -133,7 +133,7 @@ function loadAudio(audioNameList, idx) {
     adi.addEventListener(
       "loadstart",
       () => {
-        console.log(adi.toString() + idx);
+        console.log("Loading Audio" + adi.toString() + idx + " with nickname " + adiNicknameList[idx]);
         adiList.push(adi);
         loadAudio(audioNameList, idx + 1);
       },
@@ -143,7 +143,7 @@ function loadAudio(audioNameList, idx) {
     adi.addEventListener(
       "loadstart",
       () => {
-        console.log(adi.toString() + idx);
+        console.log("Loading Audio" + adi.toString() + idx + " with nickname " + adiNicknameList[idx]);
         adiList.push(adi);
         init();
       },
@@ -225,5 +225,5 @@ function draw(){
   let randomColor = Math.random() > 0.5? '#ff8080' : '#0099b0';
   context.fillStyle = randomColor;
   context.fillRect(100, 50, 200, 175);
-  context.drawImage(img("Cant")), 300, 400, 50, 50);
+  context.drawImage(img("Cant")), 500, 600, 50, 50);
 }
