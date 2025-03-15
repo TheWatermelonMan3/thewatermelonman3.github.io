@@ -34,8 +34,6 @@ function clickMOVE(event){
     var rect = canvas.getBoundingClientRect();
     mousex = event.clientX - rect.left;
     mousey = event.clientY - rect.top;
-    mousex = (mousex - centerx)/cameraZoom + cameraX;
-    mousey = (centery - mousey)/cameraZoom - cameraY;
   }
 }
 
