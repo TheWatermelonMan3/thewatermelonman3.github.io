@@ -227,4 +227,10 @@ function draw(){
   context.fillStyle = randomColor;
   context.fillRect(100, 50, 200, 175);
   context.drawImage(img("Cant"), 500, 600, 50, 50);
+  if (mouseclicked){
+    context.fillStyle = "green";
+  } else {
+    context.fillStyle = "cyan";
+  }
+  context.fillRect(mousex, mousey, 4, 4);
 }
