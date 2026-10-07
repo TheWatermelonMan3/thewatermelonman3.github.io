@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+
+html, body {
+  background: black;
+  height: 90vh;
+  width: 90vw;
+  font-family: "Source Code Pro", "Helvetica", sans-serif;
+  color: white;
+}
+
+h1 {
+  font-family: "Press Start 2P";
+}
+
+button{
+  background-color: #00bbff;
+  border-radius:10px;
+  color: black;
+  font-family: "Source Code Pro", "Helvetica", sans-serif;
+  padding: 6px 6px;
+  border: 2px solid black;
+  cursor: pointer;
+  font-weight: bolder;
+  transition: 0.25s;
+}
+
+.button:hover{
+  background-color: #1cfc03;
+  transition: 0.5s;
+  transform: translateY(-5px);
+}
+
+.specialbutton{
+  background-color: #dd00ff;
+  border-radius:10px;
+  color: black;
+  font-family: "Source Code Pro", "Helvetica", sans-serif;
+  padding: 6px 6px;
+  border: 2px solid black;
+  cursor: pointer;
+  font-weight: bolder;
+  transition: 0.25s;
+}
+
+.specialbutton:hover{
+  background-color: #ffc800;
+  transition: 0.5s;
+  transform: translateY(-5px);
+}
+
+.borderlessbutton{
+  background-color: transparent;
+  border-radius: 0px;
+  color: black;
+  font-family: "Source Code Pro", "Helvetica", sans-serif;
+  padding: 0px 0px;
+  border: none;
+  cursor: pointer;
+  font-size: 15pt;
+}
+
+input{
+  background-color: #80e1ff;
+  border-radius:10px;
+  color: black;
+  font-family: "Source Code Pro", "Helvetica", sans-serif;
+  padding: 6px 6px;
+  border: 2px solid black;
+  font-weight: bolder;
+}
+.specialinput{
+  background-color: #ee82ff;
+  border-radius:10px;
+  color: black;
+  font-family: "Source Code Pro", "Helvetica", sans-serif;
+  padding: 6px 6px;
+  border: 2px solid black;
+  font-weight: bolder;
+}
+
+a{
+  font-weight: bold;
+  color: #00bbff;
+}
+
+.a:hover{
+  color: #1cfc03;
+  transition: 0.5s;
+}
+
+.a3:hover{
+  color: #ffeb14;
+  transition: 0.5s;
+}
+
+textarea{
+  background-color: #80e1ff;
+  border-radius:10px;
+  color: black;
+  font-family: "Source Code Pro", "Helvetica", sans-serif;
+  padding: 6px 6px;
+  border: 2px solid black;
+  font-weight: bolder;
+}

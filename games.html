@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Games - TheWatermelonMan</title>
+  <meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+<script>
+  const root = document.documentElement;
+  root.classList.add('loading');
+  const show = () => root.classList.remove('loading');
+  document.fonts.load('500 1em "Noto Sans JP"').then(show, show);
+  setTimeout(show, 1500); // safety net on slow connections
+</script>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="topnav">
+  <img src="mynametransparent.png" alt="Josiah Main" height="30px" width="auto" style="padding-left:20px;">
+  <div class = "topnav-logotext">"TheWatermelonMan"</div>
+  <a href="index.html" class="reset">Home</a>
+  <a class = "active" href="games.html">Games</a>
+  <a href="code.html" class="reset">Code</a>
+  <a href="drawing.html" class="reset">Drawing</a>
+  <a href="audio.html" class="reset">Audio</a>
+  <a href="work.html" class="reset">Work</a>
+
+</div>
+
+<main>
+
+<h1>My Games</h1>
+
+<p class = "tiny">Last Updated 10/7/2026</p>
+
+<p>Here are various games I've designed for or developed for.</p>
+
+<p>Quick links: my top 3 games recently <a class = "a" href="defenders.html">1</a>
+    <a class = "a" href="https://thewatermelonman3.itch.io/vs-craig" target="_blank">2</a>
+    <a class = "a" href="https://honeyhaven.itch.io/honey-haven" target="_blank">3</a>,
+    and my <a class = "a" href="https://thewatermelonman3.itch.io/" target="_blank">itch</a>
+    and my <a class = "a" href="https://scratch.mit.edu/users/TheWatermelonMan/" target="_blank">scratch</a> for old times' sake.
+</p>
+
+<div class = "sidebyside">
+<div class = "upanddown">
+<div class="funbox" style="position:relative;width:400px;height:200px;margin-left:20px;margin-top:10px;">
+    <canvas id = "Defenders" width="400" height="200" style="position:absolute;top:0;left:0;"></canvas>
+    <a href = "defenders.html">
+    <p style="position:absolute;top:5px;left:5px;color:white;z-index:10;">
+        Defenders
+    </p>
+    </a>
+    <p style="position:absolute;top:35px;left:5px;color:white;z-index:10;font-weight: 400;">
+        Josiah Main, director
+    </p>
+    <p style="position:absolute;top:65px;left:5px;color:white;z-index:10;font-weight: 400;">
+        This is an upcoming CMU <a style="color:white;" href = "https://www.gamecreation.org/" target = "_blank">GCS</a> game built in Unity for Fall '26.
+        It's a mashup of third-person shooter and tower defense with a 2.5d cartoon style. Will post updates on this
+        <a style="color:white;" href = "defenders.html">page</a> soon.
+    </p>
+</div>
+
+<div class="funbox" style="position:relative;width:400px;height:320px;margin-left:20px;margin-top:10px;">
+    <canvas id = "Unslow" width="400" height="320" style="position:absolute;top:0;left:0;"></canvas>
+    <a href = "https://thewatermelonman3.itch.io/unslow" target = "_blank">
+    <p style="position:absolute;top:5px;left:5px;color:white;z-index:10;transition:color 0.5s;">
+        Unslow
+    </p>
+    </a>
+    <p style="position:absolute;top:35px;left:5px;color:white;z-index:10;font-weight: 400;">
+        by Josiah and Jonathan Main
+    </p>
+    <p style="position:absolute;top:65px;left:5px;color:white;z-index:10;font-weight: 400;">
+        In Summer '24 I made this game for the Polymars x ScoreSpace Speed Jam.
+        I custom-wrote a rudimentary game engine in JS for this and did all the code and sprites.
+        It has a healthy level of jankiness and is hard to control, but I think it's cute
+        and I want to exhibit it to show where I was in my game development journey at the time.
+        Also, my brother wrote the music!
+        See the
+        <a style="color:white;" href = "https://thewatermelonman3.itch.io/unslow" target = "_blank">itch page</a>
+    </p>
+</div>
+
+<div class="funbox" style="position:relative;width:400px;height:240px;margin-left:20px;margin-top:10px;">
+    <canvas id = "Cake Wars" width="400" height="240" style="position:absolute;top:0;left:0;"></canvas>
+    <a href = "notfound.html" target = "_blank">
+    <p style="position:absolute;top:5px;left:5px;color:white;z-index:10;transition:color 0.5s;">
+        Cake Wars
+    </p>
+    </a>
+    <p style="position:absolute;top:35px;left:5px;color:white;z-index:10;font-weight: 400;">
+        by Josiah and Joy Main
+    </p>
+    <p style="position:absolute;top:65px;left:5px;color:white;z-index:10;font-weight: 400;">
+        In 2021 I made about 10 copies of this party card game as gifts and stuff.
+        I drew the cards and my sister was the colorist. Sadly, the instructions are lost, but you can view this
+        <a style="color:white;" href = "notfound.html">page</a>
+        about it. (Link to be added soon)
+    </p>
+</div>
+
+</div> <!--End the upanddown-->
+
+<div class = "upanddown">
+<div class="funbox" style="position:relative;width:400px;height:320px;margin-left:20px;margin-top:10px;">
+    <canvas id = "VS Craig" width="400" height="320" style="position:absolute;top:0;left:0;"></canvas>
+    <a href = "https://thewatermelonman3.itch.io/vs-craig" target = "_blank">
+    <p style="position:absolute;top:5px;left:5px;color:white;z-index:10;transition:color 0.5s;">
+        VS Craig: A Blockman Bossfight
+    </p>
+    </a>
+    <p style="position:absolute;top:35px;left:5px;color:white;z-index:10;font-weight: 400;">
+        by Josiah Main
+    </p>
+    <p style="position:absolute;top:65px;left:5px;color:white;z-index:10;font-weight: 400;">
+        This is a game I made while taking CMU's
+        <a style="color:white;" href="https://www.gamecreation.org/course" target = "_blank">98-127 Intro to Game Development in Unity</a>
+        student-taught course in Spring '26. I learned to do a lot of things: Unity C# scripting, modeling,
+        animation/rigging, procedural animation, shader graphs - and I also wrote the music for it!
+        Thanks to my lovely teachers <a style="color:white;" href = "https://jeffreyyijiwang.dev/" target = "_blank">Jeffrey</a>,
+        <!---->
+        <a style="color:white;" href = "https://sites.google.com/view/dario-quintero-portfolio/projects?authuser=0" target = "_blank">Dario</a>,
+        <a style="color:white;" href = "https://www.linkedin.com/in/eiekama/" target = "_blank">Jingxuan</a>,
+        and <a style="color:white;" href = "https://www.linkedin.com/in/shangyi-zhu-6818201b3/" target = "_blank">Shangyi</a>! And here's the
+        <a style="color:white;" href = "https://thewatermelonman3.itch.io/vs-craig" target = "_blank">itch page</a>
+    </p>
+</div>
+
+<div class="funbox" style="position:relative;width:400px;height:380px;margin-left:20px;margin-top:10px;">
+    <canvas id = "Michael Cycle 3D" width="400" height="380" style="position:absolute;top:0;left:0;"></canvas>
+    <a href = "https://turbowarp.org/857553043/fullscreen" target = "_blank">
+    <p style="position:absolute;top:5px;left:5px;color:white;z-index:10;transition:color 0.5s;">
+        Michael Cycle 3D
+    </p>
+    </a>
+    <p style="position:absolute;top:35px;left:5px;color:white;z-index:10;font-weight: 400;">
+        by Josiah and Jonathan Main
+    </p>
+    <p style="position:absolute;top:65px;left:5px;color:white;z-index:10;font-weight: 400;">
+        In 2023 (10th grade) I spent a year doing my very best to replicate a popular
+        <a style="color:white;" href = "https://en.wikipedia.org/wiki/Mario_Kart" target = "_blank">racing game</a> (hmm i wonder which one)
+        in Scratch! To do this, I followed <a style="color:white;" href = "https://scratch.mit.edu/users/griffpatch/" target = "_blank">griffpatch</a>'s
+        3D raytracing tutorials and then extended it with my own engine, including my own polygon filler, 3D hitboxes, computer-controlled opponent path editor,
+        and I also prerendered the models to make it faster at runtime.
+        The best way to play it is probably
+        <a style="color:white;" href = "https://turbowarp.org/857553043/fullscreen" target = "_blank">TurboWarp</a>, but you can use the native
+        <a style="color:white;" href = "https://scratch.mit.edu/projects/857553043/fullscreen/" target = "_blank">Scratch</a> page too.
+    </p>
+</div>
+
+</div> <!--End the upanddown-->
+
+<div class = "upanddown">
+
+<div class="funbox" style="position:relative;width:400px;height:280px;margin-left:20px;margin-top:10px;">
+    <canvas id = "Honey Haven" width="400" height="280" style="position:absolute;top:0;left:0;"></canvas>
+    <a href = "https://honeyhaven.itch.io/honey-haven" target = "_blank">
+    <p style="position:absolute;top:5px;left:5px;color:white;z-index:10;transition:color 0.5s;">
+        Honey Haven (dir. Alyssa Dang & Zuri Ye)
+    </p>
+    </a>
+    <p style="position:absolute;top:35px;left:5px;color:white;z-index:10;font-weight: 400;">
+        Josiah Main, minigame programmer
+    </p>
+    <p style="position:absolute;top:65px;left:5px;color:white;z-index:10;font-weight: 400;">
+        This is a visual novel which is a psychological thriller set in a cozy animal village. I made a carrot delivering minigame in Godot.
+        We won <a style="color:white;" href = "https://www.gamecreation.org/" target = "_blank">GCS</a> Gold for Spring '26!
+        Huge shoutout to the great team leaders <a style="color:white;" href = "https://zuri2102.github.io/" target = "_blank">Zuri</a>
+        and <a style="color:white;" href = "https://alyssahui.github.io/" target = "_blank">Alyssa</a> (WOW AURAAAA) and here is the
+        <a style="color:white;" href = "https://honeyhaven.itch.io/honey-haven" target = "_blank">itch page</a>
+    </p>
+</div>
+
+<div class="funbox" style="position:relative;width:400px;height:260px;margin-left:20px;margin-top:10px;">
+    <canvas id = "Lockdown in Cell Block 9" width="400" height="260" style="position:absolute;top:0;left:0;"></canvas>
+    <a href = "licb9.html">
+    <p style="position:absolute;top:5px;left:5px;color:white;z-index:10;transition:color 0.5s;">
+        Lockdown in Cell Block 9
+    </p>
+    </a>
+    <p style="position:absolute;top:35px;left:5px;color:white;z-index:10;font-weight: 400;">
+        RMHS Game Creation Society
+    </p>
+    <p style="position:absolute;top:65px;left:5px;color:white;z-index:10;font-weight: 400;">
+        In high school my friends and I designed this board game. It's a goofy game about escaping from prison.
+        Players compete to be the fastest one out of the jail using ridiculous methods like digging tunnels with spoons.
+        My site has a <a style="color:white;" href = "licb9.html">page</a> for it.
+    </p>
+</div>
+
+</div><!--End the upanddown-->
+
+</div> <!--End side by side-->
+
+</main>
+
+<footer class = "footer">
+  <div>Website by Josiah Main :D</div>
+  <div>Random <a href="index.html" id="randomlink" target="_blank" onmouseenter="randomize()" onclick="randomize()">link</a> to something I like</div>
+</footer>
+
+<script>
+var links = ["https://www.youtube.com/@sora_sakurai_en",
+             "https://open.spotify.com/track/3LklW07tvdx2AHsgfi1Mng",
+             "https://www.3blue1brown.com/?topic=neural-networks",
+             "https://eater.net/quaternions",
+             "https://www.shadertoy.com/view/4ljXWh",
+             "https://www.desmos.com/3d/arjqeeouus",
+             "https://maps.app.goo.gl/QtC9ViDmCJNjteq97",
+             "https://usa.yamaha.com/products/musical_instruments/guitars_basses/el_basses/trbx/300series.html",
+             "https://www.abramsbooks.com/product/adventuregame-comics-samurai-vs-ninja-book-3_9781419757839/",
+             "https://chrisgiarrusso.com/g-man-coming-home/",
+             "https://www.biblegateway.com/passage/?search=Matthew%206%3A34&version=NIV"
+            ];
+randlink = document.getElementById("randomlink");
+function randint(min, max) {
+  return Math.floor(Math.random() * (max-min+1)) + min;
+}
+function randomize() {
+  randlink.href = links[randint(0, links.length-1)];
+}
+</script>
+
+<!--
+
+<p>Style: scrolling melon texture w/ fake 3D
+</p>
+
+<div class="funbox" style="position:relative;width:400px;height:200px;margin-left:20px;">
+    <canvas id = "Honey Haven" width="400" height="200" style="position:absolute;top:0;left:0;"></canvas>
+    <a href = "https://honeyhaven.itch.io/honey-haven" target = "_blank">
+    <p style="position:absolute;top:5px;left:5px;color:white;z-index:10;transition:color 0.5s;"
+       onmouseenter="this.style.color = '#00ff37'"
+       onmouseleave="this.style.color = '#ffffff'">
+        Honey Haven (dir. Alyssa Dang & Zuri Ye)
+    </p>
+    </a>
+    <p style="position:absolute;top:40px;left:5px;color:white;z-index:10;font-weight: 400;">
+        Josiah Main, minigame programmer
+    </p>
+    <p style="position:absolute;top:90px;left:5px;color:white;z-index:10;font-weight: 400;">
+        Info info info blah blah blah blah blah hello hello hello long text verbose
+    </p>
+</div>
+
+-->
+
+<script>
+//const def = document.getElementById("Defenders");
+//const defctx = def.getContext("2d");
+//const defrect = def.getBoundingClientRect();
+//var defmx = 0;
+//var defmy = 0;
+//var defxangle = 0.0;
+//var defyangle = 0.0;
+let secondsPassed;
+let oldTimeStamp = -1.0;
+//let defspinner = 0;
+//let defscroll = 0.0;
+var mouseSpot = false;
+const stripethickness = 30.0;
+const stripedistance = 60.0;
+// var lastScrollX = window.scrollX;
+// var lastScrollY = window.scrollY;
+const initScrollX = window.scrollX;
+const initScrollY = window.scrollY;
+var lastScrollX = initScrollX;
+var lastScrollY = initScrollY;
+
+class funbox {
+    constructor(thediv, thectx, therect, themx, themy, thexangle, theyangle, thespinner, thescroll) {
+        this.div = thediv; //converted height and width
+        this.ctx = thectx; // converted
+        this.rect = therect; // converted
+        this.mx = themx; // converted
+        this.my = themy; // converted
+        this.xangle = thexangle; // converted
+        this.yangle = theyangle; // converted
+        this.spinner = 0.0; // converted
+        this.scroll = 0.0; // converted
+    }
+}
+
+const def = document.getElementById("Defenders");
+const hoh = document.getElementById("Honey Haven");
+const vsc = document.getElementById("VS Craig");
+const usw = document.getElementById("Unslow");
+const mc3 = document.getElementById("Michael Cycle 3D");
+const lic = document.getElementById("Lockdown in Cell Block 9");
+const ckw = document.getElementById("Cake Wars");
+const box1def = new funbox(def,
+                           def.getContext("2d"),
+                           def.getBoundingClientRect(),
+                           0.0, 0.0, 0.0, 0.0, 0.0, 0.0, false);
+const box2hoh = new funbox(hoh,
+                           hoh.getContext("2d"),
+                           hoh.getBoundingClientRect(),
+                           0.0, 0.0, 0.0, 0.0, 0.0, Math.PI, false);
+const box3vsc = new funbox(vsc,
+                           vsc.getContext("2d"),
+                           vsc.getBoundingClientRect(),
+                           0.0, 0.0, 0.0, 0.0, 0.0, Math.PI * 1.5, false);
+const box4usw = new funbox(usw,
+                           usw.getContext("2d"),
+                           usw.getBoundingClientRect(),
+                           0.0, 0.0, 0.0, 0.0, 0.0, Math.PI * 0.5, false);
+const box5mc3 = new funbox(mc3,
+                           mc3.getContext("2d"),
+                           mc3.getBoundingClientRect(),
+                           0.0, 0.0, 0.0, 0.0, 0.0, Math.PI / 3.0, false);
+const box6lic = new funbox(lic,
+                           lic.getContext("2d"),
+                           lic.getBoundingClientRect(),
+                           0.0, 0.0, 0.0, 0.0, 0.0, 2 * Math.PI / 3.0, false);
+const box7ckw = new funbox(ckw,
+                           ckw.getContext("2d"),
+                           ckw.getBoundingClientRect(),
+                           0.0, 0.0, 0.0, 0.0, 0.0, 4 * Math.PI / 3.0, false);
+const funboxes = [box1def, box2hoh, box3vsc, box4usw, box5mc3, box6lic, box7ckw];
+
+window.addEventListener('scroll', (event) => {
+    const dx = window.scrollX - lastScrollX;
+    const dy = window.scrollY - lastScrollY;
+    funboxes.forEach((box) => {
+        box.mx += dx;
+        box.my += dy;
+    });
+    lastScrollX = window.scrollX;
+    lastScrollY = window.scrollY;
+});
+
+window.addEventListener('mousemove', (event) => {
+    funboxes.forEach((box) => {
+        box.mx = event.clientX - box.rect.left + window.scrollX - initScrollX;
+        box.my = event.clientY - box.rect.top + window.scrollY - initScrollY;
+    });
+    mouseSpot = true;
+});
+
+window.onload = init;
+
+function init(){
+    // Start the first frame request
+    window.requestAnimationFrame(gameLoop);
+}
+
+function gameLoop(timeStamp){
+
+    if (oldTimeStamp < 0.0) {
+        secondsPassed = 0.0001;
+    } else {
+        secondsPassed = (timeStamp - oldTimeStamp) / 1000;
+    }
+    oldTimeStamp = timeStamp;
+
+    draw(secondsPassed);
+
+    // Keep requesting new frames
+    window.requestAnimationFrame(gameLoop);
+}
+
+function draw(dt){
+
+    funboxes.forEach((box) => {
+
+        box.ctx.clearRect(0, 0, box.div.width, box.div.height);
+
+        if (0 <= box.mx && box.mx <= box.div.width && 0 <= box.my && box.my <= box.div.height) {
+            var targxa = 0.05 * box.mx/box.div.width - 0.025;
+            var targya = 0.05 * box.my/box.div.height - 0.025;
+            box.xangle = 0.9 * box.xangle + 0.1 * targxa;
+            box.yangle = 0.9 * box.yangle + 0.1 * targya;
+            box.scroll = (box.scroll + 10 * dt) % stripedistance;
+            //while (defscroll > stripethickness) defscroll = Math.min(0.0, defscroll - stripethickness);
+        } else {
+            box.spinner += 2 * dt;
+            var targxa = 0.015 * Math.cos(box.spinner);
+            var targya = 0.015 * Math.sin(box.spinner);
+            box.xangle = 0.9 * box.xangle + 0.1 * targxa;
+            box.yangle = 0.9 * box.yangle + 0.1 * targya;
+        }
+
+        const def_ordinarywidth = box.div.width - 20;
+        const def_ordinaryheight = box.div.height - 20;
+        box.ctx.save(); // pre-clip
+        var cosxa = Math.cos(box.xangle);
+        var sinxa = Math.sin(box.xangle);
+        var cosya = Math.cos(box.yangle);
+        var sinya = Math.sin(box.yangle);
+        var pointsx = [-1, -1, 1, 1];
+        var pointsy = [-1, 1, 1, -1];
+        var pointsz = [0, 0, 0, 0];
+        //console.log("dt " + dt + " pointsx " + pointsx + " yiteration " + yiteration + " defscroll " + box.scroll + " pointsy " + pointsy + " pointsz " + pointsz);
+        path3d(box.ctx, pointsx, pointsy, pointsz, cosxa, sinxa, cosya, sinya, box.div.width, box.div.height, def_ordinarywidth, def_ordinaryheight);
+        box.ctx.clip();
+        
+        box.ctx.fillStyle = '#07741e';
+        //defctx.fillStyle = '#ffff00';
+        box.ctx.fill();
+        //defctx.fillRect(0,0,400,100);
+
+        var iter = 0;
+        for (let watermelonrowheight = 10 - 0.5 * def_ordinaryheight; watermelonrowheight < def_ordinaryheight; watermelonrowheight += stripedistance) {
+            pointsx = [];
+            pointsy = [];
+            pointsz = [];
+            //var xiteration = -0.5 * def_ordinarywidth;
+            var xiteration = -0.5 * def_ordinarywidth;
+            var yiteration = 0.0;
+            var normalizationw = 0.5 * def_ordinarywidth;
+            var normalizationh = 0.5 * def_ordinaryheight;
+            // while (xiteration <= 0.5 * def_ordinarywidth) {
+            const xincr = 25;
+            while (xiteration <= 0.5 * def_ordinarywidth + xincr ) {
+                pointsx.push(xiteration / normalizationw);
+                pointsx.unshift(xiteration / normalizationw);
+                pointsy.push((yiteration - box.scroll + watermelonrowheight) / normalizationh);
+                pointsy.unshift((yiteration - box.scroll + stripethickness + watermelonrowheight) / normalizationh);
+                pointsz.push(0);
+                pointsz.unshift(0);
+                //console.log("pointsy " + pointsy);
+                //console.log("pointsz " + pointsz);
+
+                xiteration += xincr;
+                yiteration = 10 - yiteration;
+                //iter++;
+                //if (iter >= 4) break;
+            }
+            //console.log("dt " + dt + " pointsx " + pointsx + " yiteration " + yiteration + " defscroll " + box.scroll + " pointsy " + pointsy + " pointsz " + pointsz);
+            path3d(box.ctx, pointsx, pointsy, pointsz, cosxa, sinxa, cosya, sinya, box.div.width, box.div.height, def_ordinarywidth, def_ordinaryheight);
+            box.ctx.fillStyle = '#13802a';
+            //defctx.fillStyle = '#ffff00';
+            box.ctx.fill();
+            //if (iter >= 4) break;
+        }
+
+        if (mouseSpot) {
+            box.ctx.globalAlpha = 0.3;
+            box.ctx.fillStyle = '#00af26';
+            box.ctx.beginPath();
+            box.ctx.arc(box.mx, box.my, 70, 0, 2 * Math.PI);
+            box.ctx.fill();
+            box.ctx.globalAlpha = 1.0;
+        }
+        box.ctx.restore(); // post-clip
+
+    });
+}
+
+function path3d(ctx, pointsx, pointsy, pointsz, cosxa, sinxa, cosya, sinya, w, h, ow, oh) {
+    ctx.beginPath();
+    for (let i = 0; i<pointsx.length; i++) {
+        pointsy[i] = pointsy[i] * cosya - pointsz[i] * sinya;
+        pointsz[i] = pointsy[i] * sinya + pointsz[i] * cosya;
+        pointsx[i] = pointsx[i] * cosxa - pointsz[i] * sinxa;
+        pointsz[i] = pointsx[i] * sinxa + pointsz[i] * cosxa;
+        var x_canvasspace = 0.5 * w + (pointsx[i] / (1.0+pointsz[i])) * ow * 0.5;
+        var y_canvasspace = 0.5 * h + (pointsy[i] / (1.0+pointsz[i])) * oh * 0.5;
+        //console.log("point " + x_canvasspace + ", " + y_canvasspace)
+        if (i == 0){
+            ctx.moveTo(x_canvasspace, y_canvasspace);
+        } else {
+            ctx.lineTo(x_canvasspace, y_canvasspace);
+        }
+    }
+    var x_canvasspace = 0.5 * w + (pointsx[0] / (1.0+pointsz[0])) * ow * 0.5;
+    var y_canvasspace = 0.5 * h + (pointsy[0] / (1.0+pointsz[0])) * oh * 0.5;
+    ctx.lineTo(x_canvasspace, y_canvasspace);
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Games - TheWatermelonMan</title>
+  <meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+<script>
+  const root = document.documentElement;
+  root.classList.add('loading');
+  const show = () => root.classList.remove('loading');
+  document.fonts.load('500 1em "Noto Sans JP"').then(show, show);
+  setTimeout(show, 1500); // safety net on slow connections
+</script>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="topnav">
+  <img src="mynametransparent.png" alt="Josiah Main" height="30px" width="auto" style="padding-left:20px;">
+  <div class = "topnav-logotext">"TheWatermelonMan"</div>
+  <a href="index.html" class="reset">Home</a>
+  <a class = "active" href="games.html">Games</a>
+  <a href="code.html" class="reset">Code</a>
+  <a href="drawing.html" class="reset">Drawing</a>
+  <a href="audio.html" class="reset">Audio</a>
+  <a href="work.html" class="reset">Work</a>
+
+</div>
+
+<main>
+
+<h1>Lockdown in Cell Block 9</h1>
+
+<p class = "tiny">Last Updated 10/7/2026</p>
+
+<h2>About Game Maker Club</h2>
+
+<p>
+  I and four friends founded the Game Maker Club at Richard Montgomery high school.
+  In the 2023-2024 school year we created the project "Lockdown in Cell Block Nine," a board game influenced by video game mechanics, over a semester.
+  The club is now indefinitely on hiatus because all club leadership graduated.
+</p>
+
+<h2>Lockdown in Cell Block Nine</h2>
+<p>In the 2023-2024 school year, Game Maker Club prototyped an all-original board game entitled "Lockdown in Cell Block Nine."</p>
+<p>
+  It's a goofy game about escaping from prison. Players compete to be the fastest one out of the jail using ridiculous methods like digging tunnels with spoons.
+</p>
+<p>
+  The core development team was myself and David, Kieron, Jack, Nethaka, Kailash, and Salim.
+</p>
+<p>
+  A central mechanic of the game is the automated camera system which turns security cameras on at regular intervals, allowing prisoners to be caught if they don't time their moves
+  with the correct turn. Also important is the random guard spawning system which assigns guards to check on a subset of spaces on the board, and if they find prisoners, to catch them.
+</p>
+<p>
+    Something I found especially remarkable about this game in playtests was how it led to players creating their own wild escape stories.
+    I'm a sucker for narrative in games, and so seeing the emergent behavior of chaining together multiple related cards to have a super-turn
+    and break out was cool and a memorable experience for players.
+</p>
+
+<img class = "art" src = "licb9annotated.png" alt = "four stuffed animals playing the game Lockdown in Cell Block Nine with descriptive labels">
+
+<p style="align-self: center;">My stuffed animals playing the game.</p>
+
+<p>
+  Read the manual for the game <a class = "a" href = "LiCB9manual_anonymous.pdf" target = "_blank">here</a>.
+</p>
+
+</main>
+
+<footer class = "footer">
+  <div>Website by Josiah Main :D</div>
+  <div>Random <a href="index.html" id="randomlink" target="_blank" onmouseenter="randomize()" onclick="randomize()">link</a> to something I like</div>
+</footer>
+
+<script>
+var links = ["https://www.youtube.com/@sora_sakurai_en",
+             "https://open.spotify.com/track/3LklW07tvdx2AHsgfi1Mng",
+             "https://www.3blue1brown.com/?topic=neural-networks",
+             "https://eater.net/quaternions",
+             "https://www.shadertoy.com/view/4ljXWh",
+             "https://www.desmos.com/3d/arjqeeouus",
+             "https://maps.app.goo.gl/QtC9ViDmCJNjteq97",
+             "https://usa.yamaha.com/products/musical_instruments/guitars_basses/el_basses/trbx/300series.html",
+             "https://www.abramsbooks.com/product/adventuregame-comics-samurai-vs-ninja-book-3_9781419757839/",
+             "https://chrisgiarrusso.com/g-man-coming-home/",
+             "https://www.biblegateway.com/passage/?search=Matthew%206%3A34&version=NIV"
+            ];
+randlink = document.getElementById("randomlink");
+function randint(min, max) {
+  return Math.floor(Math.random() * (max-min+1)) + min;
+}
+function randomize() {
+  randlink.href = links[randint(0, links.length-1)];
+}
+</script>
+
+</body>
+</html>
+
+<!--
+<h2>About Us</h2>
+<p>The Game Maker Club at RM high school was founded by Josiah (TheWatermelonMan3) and four friends (DK, KK, JS, NJ) in 2023. <br>
+  Current leadership includes all founders as well as two other leaders (KS, SM). <br>
+  In the 2023-2024 school year we created the project "Lockdown in Cell Block Nine," a board game influenced by video game mechanics, over a semester. <br>
+  Initial plans were to self-publish the game, but publication was put to an end as key team members became busy with other projects. <br>
+  In the 2024-2025 school year, club game development projects are on hiatus until club leadership have finished college applications. <br>
+  This year was focused more on game discussion, play sessions, and critique. <br>
+  One project the team did finish this year was making a game in 1 hour, which you can play <a href = "https://scratch.mit.edu/projects/1070074616/" class = "a3" target = "_blank">here ↗</a>.
+</p>
+
+<h2>Lockdown in Cell Block Nine</h2>
+<p>In the 2023-2024 school year, Game Maker Club prototyped an all-original board game entitled "Lockdown in Cell Block Nine." <br>
+  It's a goofy game about escaping from prison. Players compete to be the fastest one out of the jail using ridiculous methods like digging tunnels with spoons. <br>
+  The core development team was myself and DK, KK, JS, NJ, KS, and SM. <br>
+  A central mechanic of the game is the automated camera system which turns security cameras on at regular intervals, allowing prisoners to be caught if they don't time their moves
+  with the correct turn. Also important is the random guard spawning system which assigns guards to check on a subset of spaces on the board, and if they find prisoners, to catch them.
+</p>
+
+<img src = "AnnotatedBigGameView.png" alt = "four stuffed animals playing the game Lockdown in Cell Block Nine with descriptive labels" width = "800" height = "600">
+
+<p>
+  Read the manual for the game <a class = "a3" href = "LiCB9manual_anonymous.pdf" target = "_blank">here ↗</a>.
+</p>
+-->

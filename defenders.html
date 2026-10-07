@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Games - TheWatermelonMan</title>
+  <meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+<script>
+  const root = document.documentElement;
+  root.classList.add('loading');
+  const show = () => root.classList.remove('loading');
+  document.fonts.load('500 1em "Noto Sans JP"').then(show, show);
+  setTimeout(show, 1500); // safety net on slow connections
+</script>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="topnav">
+  <img src="mynametransparent.png" alt="Josiah Main" height="30px" width="auto" style="padding-left:20px;">
+  <div class = "topnav-logotext">"TheWatermelonMan"</div>
+  <a href="index.html" class="reset">Home</a>
+  <a class = "active" href="games.html">Games</a>
+  <a href="code.html" class="reset">Code</a>
+  <a href="drawing.html" class="reset">Drawing</a>
+  <a href="audio.html" class="reset">Audio</a>
+  <a href="work.html" class="reset">Work</a>
+
+</div>
+
+<main>
+
+<h1>Defenders</h1>
+
+<p class = "tiny">Last Updated 10/7/2026</p>
+
+<p>Defenders is an upcoming title scheduled to finish development in December of 2026.
+    It's being developed with the Game Creation Society at CMU.</p>
+
+<p>At this point, the game is still in early development. However, as development progresses, more updates will hopefully be shared on this page.</p>
+
+<p>The main concept of the game centers around a mashup of shooter and tower-defense gameplay. The game loop is defeating enemies, upgrading yourself, and through repeated upgrades, transforming yourself into a mighty auto-attacking tower!</p>
+
+</main>
+
+<footer class = "footer">
+  <div>Website by Josiah Main :D</div>
+  <div>Random <a href="index.html" id="randomlink" target="_blank" onmouseenter="randomize()" onclick="randomize()">link</a> to something I like</div>
+</footer>
+
+<script>
+var links = ["https://www.youtube.com/@sora_sakurai_en",
+             "https://open.spotify.com/track/3LklW07tvdx2AHsgfi1Mng",
+             "https://www.3blue1brown.com/?topic=neural-networks",
+             "https://eater.net/quaternions",
+             "https://www.shadertoy.com/view/4ljXWh",
+             "https://www.desmos.com/3d/arjqeeouus",
+             "https://maps.app.goo.gl/QtC9ViDmCJNjteq97",
+             "https://usa.yamaha.com/products/musical_instruments/guitars_basses/el_basses/trbx/300series.html",
+             "https://www.abramsbooks.com/product/adventuregame-comics-samurai-vs-ninja-book-3_9781419757839/",
+             "https://chrisgiarrusso.com/g-man-coming-home/",
+             "https://www.biblegateway.com/passage/?search=Matthew%206%3A34&version=NIV"
+            ];
+randlink = document.getElementById("randomlink");
+function randint(min, max) {
+  return Math.floor(Math.random() * (max-min+1)) + min;
+}
+function randomize() {
+  randlink.href = links[randint(0, links.length-1)];
+}
+</script>
+
+</body>
+</html>

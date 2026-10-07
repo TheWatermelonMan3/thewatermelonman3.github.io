@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Code - TheWatermelonMan</title>
+  <meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,500&display=swap" rel="stylesheet">
+<script>
+  const root = document.documentElement;
+  root.classList.add('loading');
+  const show = () => root.classList.remove('loading');
+  const fonts = [
+    ['500 1em "Noto Sans JP"'],
+    ['500 1em "Noto Sans JP"', '中文'],   // triggers the CJK subset too
+    ['500 1em "Source Code Pro"']
+  ];
+  Promise.all(fonts.map(([f, text]) => document.fonts.load(f, text))).then(show, show);
+  setTimeout(show, 1500); // safety net on slow connections
+</script>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<!--▮▯-->
+
+<body>
+<div class="topnav">
+  <img src="mynametransparent.png" alt="Josiah Main" height="30px" width="auto" style="padding-left:20px;">
+  <div class = "topnav-logotext">"TheWatermelonMan"</div>
+  <a href="index.html" class="reset">Home</a>
+  <a href="games.html" class="reset">Games</a>
+  <a href="code.html" class="active">Code</a>
+  <a href="drawing.html" class="reset">Drawing</a>
+  <a href="audio.html" class="reset">Audio</a>
+  <a href="work.html" class="reset">Work</a>
+
+</div>
+
+<main>
+
+<h1>Coding Projects</h1>
+
+<p class = "tiny">Last Updated 10/3/2026</p>
+
+<p>Projects I programmed. Here's my <a class="a" target="_blank" href="https://github.com/TheWatermelonMan3">GitHub</a>.</p>
+
+<div class="sidebyside">
+<div class="codebox">
+  <p class = "code">Hight Walker Lab LabVIEW Automation</p>
+  <noscript>
+    <p class = "code">In Summer '25 I had the privilege to help Dr.
+      <a style="color:white" target = "_blank" href="https://www.nist.gov/people/angela-r-hight-walker">Angela Hight Walker</a>
+      and her lab with automating their Raman and PL spectroscopy experiments in LabVIEW. These were low-level programs to connect to
+      instruments over various protocols and then send commands such as, "move the motor to 30 degrees," "change the cryostat target temperature to 5K",
+      or "read voltage from 8 pins". Every instrument had a different manufacturer, but many experiments required multiple instruments to cooperate,
+      so I synthesized control over multiple instruments. Key achievements for the summer included improving the spectra-vs-temperature experiment to
+      wait until the temperature reached a proper degree of stability before collecting optical data, creating a routine to auto-focus the objective
+      on the sample by moving the objective up and down with a piezoelectric nanopositioner iteratively until a local maximum in optical signal was reached,
+      implementing new routines to measure resistance using a four-point calculation while sweeping temperature or field at a linear rate
+      (for characterizing superconductor performance), and enabling optical-vs-temperature experiments to be conducted simultaneously with
+      superconductor resistance measurements. A paper is in preparation detailing the instrumentation and software, but I won't release a repository
+      with code because it belongs to Hight Walker Lab at NIST.
+    </p>
+  </noscript>
+  <p class = "code" id = "LabVIEW">▮</p>
+</div>
+<div class="codebox">
+  <p class = "code"><a style="color:white" target = "_blank" href="https://15362.courses.cs.cmu.edu/fall2026/home">15-213</a> Systems Class Projects</p>
+  <noscript>
+    <p class = "code">In Spring '26 I had the pleasure and pain of taking my favorite (so far) CS class as well as the hardest one I've had so far,
+      Introduction to Computer Systems. For this class, we had to make a lot of projects involving some pretty hefty and low-level systems coding.
+      To me, the most interesting, hardest, and most fun were: attacklab - stack smashing and ROP, where I even figured out a way to pass a pointer to a string
+      of my own choosing as %rdi using ROP gadgets; cachelab - made a cache hit/miss simulator and also optimized 32x32 and 1024x1024 matrix transpose to maximize cache hits;
+      malloclab - made a segregated explicit list malloc (dynamic memory allocator) that achieved 74% memory utilization,
+      and somewhat less impressive, the speed on the grading servers was 8826 KOPS (top 87 in my class all had >10000 KOPS); tshlab - made a shell that
+      can run foreground jobs, background jobs, have signal handlers to kill or pause jobs, and redirect program input/output to/from files;
+      and proxylab - made a HTTP 1.0 web proxy that I could actually run and use through Firefox, reading data from sockets and building
+      HTML GET requests. <br>
+      Unfortunately, I can't release a repository with code because that would be cheating for the class.
+    </p>
+  </noscript>
+  <p class = "code" id = "ICS">▯</p>
+</div>
+<div class="codebox">
+  <p class = "code"><a style="color:white" target = "_blank" href="https://15362.courses.cs.cmu.edu/fall2026/home">15-362</a> Scotty3D Application</p>
+  <noscript>
+    <p class = "code">In Fall '26 I'm taking Computer Graphics at CMU. This class involves receiving a skeleton of a 3D graphics
+      application, like a simplified version of Blender but with all core functionality missing. Over the semester students like me
+      implement everything for the app in C++: from transforms in a scene graph all the way to a software rasterizer, mesh editing functions including
+      Catmull-Clark subdivision and quadric error mesh simplification, a pathtracer, and a rigging and animation interface where users can control splines
+      and kinematics. In addition, I'll be required to add two extensions with new features to Scotty3D. These are TBD!
+      <br>
+      I won't release a repository with code because that would be cheating for the class.
+    </p>
+  </noscript>
+  <p class = "code" id = "Scotty3D">▯</p>
+</div>
+<div class="codebox">
+  <p class = "code"><a style="color:white" target = "_blank" href="https://courses.ece.cmu.edu/18095">18-095</a> Clank the Soda Rover</p>
+  <noscript>
+    <p class = "code"><a style="color:white" target = "_blank" href="https://www.phinguyen.site">Phi</a> and I built this robot that can identify, drive to,
+      and pick up a soda can autonomously. We made it for the course "Getting Started in Electronics: An Experiential Approach." In this project
+      Phi handled setting up the computer vision model which we flashed onto a GROVE AI chip using a YOLO model for soda cans, and wrote the code
+      so that our ESP32 took the YOLO bounding box and would encode and send information about which direction the soda can's bounding box was in
+      on a wire to an Arduino microprocessor. I handled this Arduino which did the steering and wheel controls. I also handled one more Arduino which
+      used a distance sensor to detect when the soda can was present in front of the robot's forklift and would lift it off the ground.
+      I built almost all the parts of the robot including 3D printing or laser cutting the body, wheels, rack and pinion for the forklift, and roof,
+      and I wrote the Arduino/C++ code needed to calibrate the forklift (it moves up and down until a wire makes electrical contact signaling the
+      forklift is in the right position) and control all the motors. This was the first robot we had ever built and we basically made it from scratch,
+      except for the microprocessors. It was a bit of a mess, but it worked! Here's a
+      <a style="color:white" target = "_blank" href="https://github.com/TheWatermelonMan3/18095-phi-josiah-project">repo</a>
+      for it and a <a style="color:white" target = "_blank" href="https://youtube.com/shorts/0yNmi3HUFSI?feature=share">video</a> of it working.
+    </p>
+  </noscript>
+  <p class = "code" id = "Clank">▯</p>
+</div>
+<div class="codebox">
+  <p class = "code">Neural Network Playground</p>
+  <noscript>
+    <p class = "code">Back in 11th grade, I watched 3Blue1Brown's series on Neural Networks, and I got inspired to make my own webpage
+      where you can construct your own neural network, visualize the weights and biases, and train it!
+      This is very rudimentary, and I programmed everything myself. It's like a little neural network
+      library that's very stripped down and very annoying to use. Here's the
+      <a style="color:white" href="neuralnetworks.html">page</a>.
+    </p>
+  </noscript>
+  <p class = "code" id = "NNs">▯</p>
+</div>
+<div class="codebox">
+  <p class = "code">Swim Lineup Optimizer</p>
+  <noscript>
+    <p class = "code">For my 11th grade IB Computer Science final project, I created an algorithm that is supposed to automate the challenge of
+      taking a swim team and calculating the optimal events that each swimmer should swim in order to gain the maximum number of points.
+      This problem is non-trivial since each swimmer can only swim a limited amount of relay and individual events, and it's not necessarily
+      guaranteed that a faster swimmer will earn more points than a slower one since everything is ranking-based. In the end I used a heuristic
+      that does a search based on intra-team ranking and specialty score, trying to place the fastest athletes and have them swim the events they
+      were fastest at. Here's the
+      <a style="color:white" target = "_blank" href="https://github.com/TheWatermelonMan3/SwimLineup/tree/main">repo</a>.
+    </p>
+  </noscript>
+  <p class = "code" id = "SwimLineup">▯</p>
+</div>
+</div>
+
+<!--
+<p>To be added:
+    Neural Network Experiment,
+    Syllability if that exists,
+    SwimLineup
+</p>
+
+<p style="font-family: 'Source Code Pro', monospace;">BRO IS CODE</p>
+
+<p>Style: type out project details char by char using js. Black background green terminal.
+</p>
+-->
+
+</main>
+
+<footer class = "footer">
+  <div>Website by Josiah Main :D</div>
+  <div>Random <a href="index.html" id="randomlink" target="_blank" onmouseenter="randomize()">link</a> to something I like</div>
+</footer>
+
+<script>
+var links = ["https://www.youtube.com/@sora_sakurai_en",
+             "https://open.spotify.com/track/3LklW07tvdx2AHsgfi1Mng",
+             "https://www.3blue1brown.com/?topic=neural-networks",
+             "https://eater.net/quaternions",
+             "https://www.shadertoy.com/view/4ljXWh",
+             "https://www.desmos.com/3d/arjqeeouus",
+             "https://maps.app.goo.gl/QtC9ViDmCJNjteq97",
+             "https://usa.yamaha.com/products/musical_instruments/guitars_basses/el_basses/trbx/300series.html",
+             "https://www.abramsbooks.com/product/adventuregame-comics-samurai-vs-ninja-book-3_9781419757839/",
+             "https://chrisgiarrusso.com/g-man-coming-home/",
+             "https://www.biblegateway.com/passage/?search=Matthew%206%3A34&version=NIV"
+            ];
+randlink = document.getElementById("randomlink");
+function randint(min, max) {
+  return Math.floor(Math.random() * (max-min+1)) + min;
+}
+function randomize() {
+  randlink.href = links[randint(0, links.length-1)];
+}
+
+window.onload = init;
+
+function init(){
+    // Start the first frame request
+    window.requestAnimationFrame(gameLoop);
+}
+
+
+
+let secondsPassed;
+let oldTimeStamp = -1.0;
+let timer = 0.0;
+let absoluteTimer = 0.0;
+const boxes = ["LabVIEW", "ICS", "Scotty3D", "Clank", "NNs", "SwimLineup"];
+const texts = [`In Summer '25 I had the privilege to help Dr. {Angela Hight Walker} and her lab with \
+                automating their Raman and PL spectroscopy experiments in LabVIEW. These were low-level \
+                programs to connect to instruments over various protocols and then send commands such as, \
+                "move the motor to 30 degrees," "change the cryostat target temperature to 5K", or "read \
+                voltage from 8 pins". Every instrument had a different manufacturer, but many experiments \
+                required multiple instruments to cooperate, so I synthesized control over multiple instruments.\
+                Key achievements for the summer included improving the spectra-vs-temperature experiment to wait \
+                until the temperature reached a proper degree of stability before collecting optical data, creating \
+                a routine to auto-focus the objective on the sample by moving the objective up and down with a \
+                piezoelectric nanopositioner iteratively until a local maximum in optical signal was reached, \
+                implementing new routines to measure resistance using a four-point calculation while sweeping \
+                temperature or field at a linear rate (for characterizing superconductor performance), and \
+                enabling optical-vs-temperature experiments to be conducted simultaneously with superconductor \
+                resistance measurements. A paper is in preparation detailing the instrumentation and software, \
+                but I won't release a repository with code because it belongs to Hight Walker Lab at NIST.`,
+
+                `In Spring '26 I had the pleasure and pain of taking my favorite (so far) CS class as well as \
+                the hardest one I've had so far, Introduction to Computer Systems. For this class, we had to \
+                make a lot of projects involving some pretty hefty and low-level systems coding. To me, the most \
+                interesting, hardest, and most fun were: attacklab - stack smashing and ROP, where I even figured \
+                out a way to pass a pointer to a string of my own choosing as %rdi using ROP gadgets; cachelab - \
+                made a cache hit/miss simulator and also optimized 32x32 and 1024x1024 matrix transpose to maximize \
+                cache hits; malloclab - made a segregated explicit list malloc (dynamic memory allocator) that \
+                achieved 74% memory utilization, and somewhat less impressive, the speed on the grading servers \
+                was 8826 KOPS (top 87 in my class all had >10000 KOPS); tshlab - made a shell that can run \
+                foreground jobs, background jobs, have signal handlers to kill or pause jobs, and redirect program \
+                input/output to/from files; and proxylab - made a HTTP 1.0 web proxy that I could actually run and \
+                use through Firefox, reading data from sockets and building HTML GET requests.^Unfortunately, \
+                I can't release a repository with code because that would be cheating for the class.`,
+
+                `In Fall '26 I'm taking Computer Graphics at CMU. This class involves receiving a skeleton \
+                of a 3D graphics application, like a simplified version of Blender but with all core functionality \
+                missing. Over the semester students like me implement everything for the app in C++: from transforms in a \
+                scene graph all the way to a software rasterizer, mesh editing functions including Catmull-Clark subdivision \
+                and quadric error mesh simplification, a pathtracer, and a rigging and animation interface where users can \
+                control splines and kinematics. In addition, I'll be required to add two extensions with new features to \
+                Scotty3D. These are TBD!^I won't release a repository with code because that would be cheating for the class.`,
+
+                `{Phi} and I built this robot that can identify, drive to, and pick up a soda can autonomously. We made it \
+                for the course "Getting Started in Electronics: An Experiential Approach." In this project Phi handled setting \
+                up the computer vision model which we flashed onto a GROVE AI chip using a YOLO model for soda cans, and wrote \
+                the code so that our ESP32 took the YOLO bounding box and would encode and send information about which direction \
+                the soda can's bounding box was in on a wire to an Arduino microprocessor. I handled this Arduino which did the \
+                steering and wheel controls. I also handled one more Arduino which used a distance sensor to detect when the soda \
+                can was present in front of the robot's forklift and would lift it off the ground. I built almost all the parts of \
+                the robot including 3D printing or laser cutting the body, wheels, rack and pinion for the forklift, and roof, and I \
+                wrote the Arduino/C++ code needed to calibrate the forklift (it moves up and down until a wire makes electrical \
+                contact signaling the forklift is in the right position) and control all the motors. This was the first robot \
+                we had ever built and we basically made it from scratch, except for the microprocessors. It was a bit of a mess, \
+                but it worked! Here's a {repo} for it and a {video} of it working.`,
+                
+                `Back in 11th grade, I watched 3Blue1Brown's series on Neural Networks, and I got inspired to make \
+                my own webpage where you can construct your own neural network, visualize the weights and biases, and train it! \
+                This is very rudimentary, and I programmed everything myself. It's like a little neural network library that's \
+                very stripped down and very annoying to use. Here's the {page}.`,
+
+                `For my 11th grade IB Computer Science final project, I created an algorithm that is supposed to automate \
+                the challenge of taking a swim team and calculating the optimal events that each swimmer should swim in order \
+                to gain the maximum number of points. This problem is non-trivial since each swimmer can only swim a limited \
+                amount of relay and individual events, and it's not necessarily guaranteed that a faster swimmer will earn more \
+                points than a slower one since everything is ranking-based. In the end I used a heuristic that does a search based \
+                on intra-team ranking and specialty score, trying to place the fastest athletes and have them swim the events they \
+                were fastest at. Here's the {repo}.`];
+const hrefs = [["https://www.nist.gov/people/angela-r-hight-walker"], [], [],
+               ["https://www.phinguyen.site",
+               "https://github.com/TheWatermelonMan3/18095-phi-josiah-project",
+              "https://youtube.com/shorts/0yNmi3HUFSI?feature=share"],
+               ["neuralnetworks.html"],
+               ["https://github.com/TheWatermelonMan3/SwimLineup/tree/main"]
+              ];
+let done = [false, false, false, false, false, false];
+let href_idx = [0, 0, 0, 0, 0, 0];
+let i = 0;
+let j = [0, 0, 0, 0, 0, 0];
+const delays = [0.0, 1.0, 2.0, 3.0, 4.0, 5.0];
+
+let pElem = document.getElementById(boxes[i]);
+let typingThing = ["", "", "", "", "", ""];
+let typingLink = ["", "", "", "", "", ""];
+let inLink = [false, false, false, false, false, false];
+
+function gameLoop(timeStamp){
+
+    if (oldTimeStamp < 0.0) {
+        secondsPassed = 0.0001;
+    } else {
+        secondsPassed = (timeStamp - oldTimeStamp) / 1000;
+    }
+    oldTimeStamp = timeStamp;
+
+    timer += secondsPassed;
+    absoluteTimer += secondsPassed;
+
+    if (timer > 0.00067) {
+      console.log(typingThing + " is the typingThing and the letter here is " + texts[i][j] + " from i = " + i + "/ j = " + j);
+      timer = 0.0;
+      
+      for (let i = 0; i < boxes.length; i++) {
+        pElem = document.getElementById(boxes[i]);
+        if (j[i] < texts[i].length && absoluteTimer >= delays[i]) {
+          if (texts[i][j[i]] === "{") {
+            inLink[i] = true;
+            typingLink[i] = "";
+          } else if (texts[i][j[i]] === "}") {
+            inLink[i] = false;
+            typingThing[i] += '<a style="color:white" target = "_blank" href="' + hrefs[i][href_idx[i]] + '">' + typingLink[i] + '</a>';
+            typingLink[i] = "";
+            href_idx[i]++;
+          } else if (texts[i][j[i]] === "^") {
+            if (inLink[i]) typingLink[i] += "<br>";
+            else typingThing[i] += "<br>";
+          } else {
+            if (inLink[i]) typingLink[i] += texts[i][j[i]];
+            else typingThing[i] += texts[i][j[i]];
+          }
+          pElem.innerHTML = typingThing[i] + typingLink[i] + "▮";
+
+          j[i]++;
+          if (j[i] >= texts[i].length) {
+            pElem.innerHTML = typingThing[i] + typingLink[i] + "▯";
+          }
+        }
+      }
+    }
+
+    // Keep requesting new frames until we hit the end of the loop
+    if (i < boxes.length) window.requestAnimationFrame(gameLoop);
+}
+
+</script>
+</body>
+</html>

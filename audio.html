@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Josiah Main - TheWatermelonMan</title>
-  <meta charset="utf-8">
+  <title>Audio - TheWatermelonMan</title>
 <link rel="shortcut icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <script>
   const root = document.documentElement;
   root.classList.add('loading');
@@ -21,32 +21,26 @@
 <div class="topnav">
   <img src="mynametransparent.png" alt="Josiah Main" height="30px" width="auto" style="padding-left:20px;">
   <div class = "topnav-logotext">"TheWatermelonMan"</div>
-  <a class="active" href="index.html">Home</a>
+  <a href="index.html" class="reset">Home</a>
   <a href="games.html" class="reset">Games</a>
   <a href="code.html" class="reset">Code</a>
   <a href="drawing.html" class="reset">Drawing</a>
-  <a href="audio.html" class="reset">Audio</a>
+  <a href="audio.html" class="active">Audio</a>
   <a href="work.html" class="reset">Work</a>
 </div>
 
 <main>
 
-<h1>What's up?</h1>
+<h1>Audio</h1>
 
 <p class = "tiny">Last Updated 10/3/2026</p>
 
-<p>Welcome to my site! I'm Josiah Main. I'm a Christian, a student of computer science, and a creator of games and art.</p>
-
-<p>Shoutout to my hometown, Rockville, MD, to my dad's hometown, Bellingham, WA, and to my grandfather's hometown, 大溪 TW!</p>
-
-<p>I go to Carnegie Mellon University (BS CS '29).</p>
-
-<p>I worked at <a href = "https://www.nist.gov/" class = "a" target="_blank">NIST</a>
-    with Dr. <a href="https://www.nist.gov/people/angela-r-hight-walker" class = "a" target="_blank">Angela Hight Walker</a>,
-    and before that, with Dr. <a href="https://www.nist.gov/people/marc-levitan" class="a" target="_blank">Marc Levitan</a>.
+<p>This page is still under construction, and because audio is really more of a
+  goofing-off behavior for me rather than anything I'd put in a portfolio, I just
+  left it unfinished until I have time to fill it in.
 </p>
 
-<p>For school or work things, please contact me via [lastname] at cmu dot edu</p>
+<!--Style: slick black miniplayer for files-->
 
 </main>
 
@@ -73,35 +67,8 @@ function randint(min, max) {
   return Math.floor(Math.random() * (max-min+1)) + min;
 }
 function randomize() {
-  randlink.href = links[randint(0, links.length-1)];
+  randlink.href = links[randint(0, links.length)];
 }
 </script>
-
-<!--
-
-PUT THIS IN THE FOOTER!!!!
-<p><small>Random <a id = "randomlink" href = "index.html">link</a> to something I like</small></p>
-
--->
-
-<!--
-<p>I'm also a white guy, a Taiwanese guy, a comic book enjoyer, a source of dad jokes, and a fan of water shaders.</p>
-
-
-<p>My name is Josiah Main, but, uh, I guess you could tell that from my signature on the top of the website.
-</p>
-<p>Basically, this website is set up to let you know who I am and what I do. I want to change it to a three.js virtual room, but whatever...
-</p>
-<p>I go to school at Carnegie Mellon University (SCS '29) and that takes most of my time.
-</p>
-<p>Apart from that, I like to make video games, and sometimes board games too.
-</p>
-<p>I like listening to music a lot, but am not super good at playing it. I'm trying to learn the bass, though.
-</p>
-<p>Oh, and I also worked at <a href = "https://www.nist.gov/" class = "a" target="_blank">NIST</a>
-    with Dr. <a href="https://www.nist.gov/people/angela-r-hight-walker" class = "a" target="_blank">Angela Hight Walker</a>,
-    and before that, with Dr. <a href="https://www.nist.gov/people/marc-levitan" class="a" target="_blank">Marc Levitan</a>.
-</p>
--->
 </body>
 </html>
