@@ -165,7 +165,7 @@
 
 <div class="funbox" style="position:relative;width:400px;height:380px;margin-left:20px;margin-top:10px;">
     <canvas id = "Michael Cycle 3D" width="400" height="380" style="position:absolute;top:0;left:0;"></canvas>
-    <a href = "https://turbowarp.org/857553043/fullscreen" target = "_blank">
+    <a href = "https://scratch.mit.edu/projects/857553043/fullscreen/" target = "_blank">
     <p style="position:absolute;top:5px;left:5px;color:white;z-index:10;transition:color 0.5s;">
         Michael Cycle 3D
     </p>
@@ -180,8 +180,9 @@
         3D raytracing tutorials and then extended it with my own engine, including my own polygon filler, 3D hitboxes, computer-controlled opponent path editor,
         and I also prerendered the models to make it faster at runtime.
         The best way to play it is probably
-        <a style="color:white;" href = "https://turbowarp.org/857553043/fullscreen" target = "_blank">TurboWarp</a>, but you can use the native
-        <a style="color:white;" href = "https://scratch.mit.edu/projects/857553043/fullscreen/" target = "_blank">Scratch</a> page too.
+        the native
+        <a style="color:white;" href = "https://scratch.mit.edu/projects/857553043/fullscreen/" target = "_blank">Scratch</a> page,
+        but if it runs too slow you can use <a style="color:white;" href = "https://turbowarp.org/857553043/fullscreen" target = "_blank">TurboWarp</a> too.
     </p>
 </div>
 
@@ -202,6 +203,27 @@
         In high school my friends and I designed this board game. It's a goofy game about escaping from prison.
         Players compete to be the fastest one out of the jail using ridiculous methods like digging tunnels with spoons.
         My site has a <a style="color:white;" href = "licb9.html">page</a> for it.
+    </p>
+</div>
+
+<div class="funbox" style="position:relative;width:400px;height:360px;margin-left:20px;margin-top:10px;">
+    <canvas id = "Igor! and the Collision Theory" width="400" height="360" style="position:absolute;top:0;left:0;"></canvas>
+    <a href = "https://scratch.mit.edu/projects/851398688/fullscreen/" target = "_blank">
+    <p style="position:absolute;top:5px;left:5px;color:white;z-index:10;transition:color 0.5s;">
+        Igor! and the Collision Theory
+    </p>
+    </a>
+    <p style="position:absolute;top:35px;left:5px;color:white;z-index:10;font-weight: 400;">
+        by Josiah Main and James Krinsky
+    </p>
+    <p style="position:absolute;top:65px;left:5px;color:white;z-index:10;font-weight: 400;">
+        In 2023 (10th grade) James and I created this educational game in 1 week for our chemistry class fun project in order to teach
+        the chemistry concept of collision theory. It was intended to communicate the chemistry concepts to an audience of our peers.
+        It's got levels about collision theory, rates of reaction,
+        impact of temperature, pressure, and catalysts on reaction rates, and dynamic equilibrium.
+        You can play it in 
+        <a style="color:white;" href = "https://scratch.mit.edu/projects/851398688/fullscreen/" target = "_blank">Scratch</a> or
+        <a style="color:white;" href = "https://turbowarp.org/857553043/fullscreen" target = "_blank">TurboWarp</a>.
     </p>
 </div>
 
@@ -305,6 +327,7 @@ const usw = document.getElementById("Unslow");
 const mc3 = document.getElementById("Michael Cycle 3D");
 const lic = document.getElementById("Lockdown in Cell Block 9");
 const ckw = document.getElementById("Cake Wars");
+const igo = document.getElementById("Igor! and the Collision Theory");
 const box1def = new funbox(def,
                            def.getContext("2d"),
                            def.getBoundingClientRect(),
@@ -333,7 +356,11 @@ const box7ckw = new funbox(ckw,
                            ckw.getContext("2d"),
                            ckw.getBoundingClientRect(),
                            0.0, 0.0, 0.0, 0.0, 0.0, 4 * Math.PI / 3.0, false);
-const funboxes = [box1def, box2hoh, box3vsc, box4usw, box5mc3, box6lic, box7ckw];
+const box8igo = new funbox(igo,
+                           igo.getContext("2d"),
+                           igo.getBoundingClientRect(),
+                           0.0, 0.0, 0.0, 0.0, 0.0, 1.0, false);
+const funboxes = [box1def, box2hoh, box3vsc, box4usw, box5mc3, box6lic, box7ckw, box8igo];
 
 window.addEventListener('scroll', (event) => {
     const dx = window.scrollX - lastScrollX;
