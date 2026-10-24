@@ -50,10 +50,11 @@
 </p>
 -->
 
-<h2>Top 3 Games Recently</h2>
+<h2>Top Games Recently</h2>
 
 <div class="sidebyside">
 
+<!--
 <div class="funbox" style="position:relative;width:400px;height:320px;margin-left:20px;margin-top:10px;">
     <canvas id = "Defenders" width="400" height="320" style="position:absolute;top:0;left:0;"></canvas>
     <a href = "defenders.html">
@@ -70,6 +71,7 @@
         <a style="color:white;" href = "defenders.html">page</a> soon.
     </p>
 </div>
+-->
 
 <div class="funbox" style="position:relative;width:400px;height:320px;margin-left:20px;margin-top:10px;">
     <canvas id = "VS Craig" width="400" height="320" style="position:absolute;top:0;left:0;"></canvas>
@@ -320,7 +322,7 @@ class funbox {
     }
 }
 
-const def = document.getElementById("Defenders");
+//const def = document.getElementById("Defenders");
 const hoh = document.getElementById("Honey Haven");
 const vsc = document.getElementById("VS Craig");
 const usw = document.getElementById("Unslow");
@@ -328,10 +330,11 @@ const mc3 = document.getElementById("Michael Cycle 3D");
 const lic = document.getElementById("Lockdown in Cell Block 9");
 const ckw = document.getElementById("Cake Wars");
 const igo = document.getElementById("Igor! and the Collision Theory");
-const box1def = new funbox(def,
+/*const box1def = new funbox(def,
                            def.getContext("2d"),
                            def.getBoundingClientRect(),
                            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, false);
+*/
 const box2hoh = new funbox(hoh,
                            hoh.getContext("2d"),
                            hoh.getBoundingClientRect(),
@@ -360,7 +363,8 @@ const box8igo = new funbox(igo,
                            igo.getContext("2d"),
                            igo.getBoundingClientRect(),
                            0.0, 0.0, 0.0, 0.0, 0.0, 1.0, false);
-const funboxes = [box1def, box2hoh, box3vsc, box4usw, box5mc3, box6lic, box7ckw, box8igo];
+//const funboxes = [box1def, box2hoh, box3vsc, box4usw, box5mc3, box6lic, box7ckw, box8igo];
+const funboxes = [box2hoh, box3vsc, box4usw, box5mc3, box6lic, box7ckw, box8igo];
 
 window.addEventListener('scroll', (event) => {
     const dx = window.scrollX - lastScrollX;
